@@ -18,7 +18,9 @@
 
 <view class="recommend-box">
   <view class="recommend-box-title">
-    <text>今日特惠</text>
+    <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600">
+      今日特惠
+    </van-divider>
   </view>
   <view class="recommend-box-main">
     <view class="recommend-box-left">
