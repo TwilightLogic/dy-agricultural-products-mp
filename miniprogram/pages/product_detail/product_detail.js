@@ -8,6 +8,14 @@ Page({
    */
   data: {
     product: {},
+    select_num: 0,
+  },
+  // 选择商品数量
+  changeSelectNum(e) {
+    let that = this;
+    that.setData({
+      select_num: e.detail,
+    });
   },
 
   // 获取商品详情信息
