@@ -15,10 +15,9 @@
 </view>
 
 <!-- 今日特惠module -->
-
 <view class="recommend-box">
   <view class="recommend-box-title">
-    <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600">
+    <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600;" style="width: 100%;" hairline="true">
       今日特惠
     </van-divider>
   </view>
@@ -39,13 +38,13 @@
 
 <!-- 商品列表 -->
 <view class="product-container">
-  <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600">
+  <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600; margin: 12rpx;" style="width: 100%;" hairline="true">
     商品
   </van-divider>
   <view class="product-container-main">
     <block wx:for="{{product_list}}" wx:key="index">
       <!-- 商品详情 -->
-      <view class="product-detail">
+      <navigator class="product-detail" url="../product_detail/product_detail?id={{item._id}}">
         <!-- 商品图 -->
         <image src="{{item.img[0]}}" mode="widthFix" class="product-detail--image" />
         <!-- 商品名 -->
@@ -67,7 +66,7 @@
           <!-- 购物车图标 -->
           <van-icon name="add" size="64rpx" color="#7A9D54" />
         </view>
-      </view>
+      </navigator>
     </block>
   </view>
 </view>

@@ -1,2 +1,68 @@
-<!--pages/product_detail/product_detail.wxml-->
-<text>pages/product_detail/product_detail.wxml</text>
+<!-- 轮播图 -->
+<swiper class="detail-swiper" indicator-dots="true" circular="true" autoplay="true" interval="3000" indicator-color="grey" indicator-active-color="white">
+  <block wx:for="{{product.img}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item}}" mode="aspectFill" class="detail-swiper-img" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 商品信息展示 -->
+<view class="pad-20 col-flex-center">
+  <view class="product-msg col-flex-center pad-20">
+
+    <!-- 商品价格 -->
+    <view class="row-flex-start">
+      <view>
+        <text style="font-size: 32rpx; color: #8C3333; font-weight: 500;">¥</text>
+        <text style="font-size: 48rpx; font-weight: 500; color: #8C3333;">{{product.price}}</text>
+      </view>
+      <view style="margin-left: 8rpx; text-decoration: line-through; color: #999;">
+        <text style="font-size: 24rpx; color: #999;">¥</text>
+        <text style="font-size: 24rpx; color: #999;">{{product.original_price}}</text>
+      </view>
+    </view>
+
+    <!-- 商品名 -->
+    <view class="product-msg-title row-flex-start">
+      <text>{{product.name}}</text>
+    </view>
+
+    <!-- 商品月销量 -->
+    <view class="product-msg-sales row-flex-start">
+      <text>月销 {{product.sales}}+</text>
+    </view>
+
+  </view>
+
+  <!-- 选择信息 -->
+  <view class="col-flex-center pad-20 select-box">
+    <view class="row-flex-start">
+      <text>规格</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 12rpx;" />
+    <view class="row-flex-start specs-box">
+      <block wx:for="{{product.specs}}" wx:key="index">
+        <van-button round type="small" size="small" color="#7A9D54" class="specs-box--btn">{{item}}</van-button>
+      </block>
+    </view>
+  </view>
+
+  <!-- 商品详情图 -->
+  <view class="col-flex-center pad-20 select-box">
+    <view class="row-flex-start">
+      <text>商品详情</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 12rpx;" />
+    <block wx:for="{{product.img_detail}}">
+      <image src="{{item}}" mode="widthFix" class="product-msg-detail-img" />
+    </block>
+  </view>
+</view>
+
+<van-goods-action>
+  <van-goods-action-icon icon="chat-o" text="客服" />
+  <van-goods-action-icon icon="cart-o" text="购物车" info="3" />
+  <van-goods-action-button color="#7A9D54" text="加入购物车" type="warning" />
+  <van-goods-action-button color="#8C3333" text="立即购买" />
+</van-goods-action>

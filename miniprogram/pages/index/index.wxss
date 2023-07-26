@@ -93,7 +93,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 32rpx;
+  margin-top: 48rpx;
 }
 
 .product-container-main {
@@ -106,7 +106,7 @@
 }
 
 .product-detail {
-  width: 44%;
+  width: 44.5%;
   padding: 16rpx;
   background: #fff;
   box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
@@ -157,4 +157,6 @@
 
 .product-detail-price--origin {
   margin-left: 8rpx;
+  text-decoration: line-through;
+  color: #999;
 }
