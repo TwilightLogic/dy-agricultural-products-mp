@@ -1,15 +1,36 @@
-<!-- 搜索框 -->
+<!-- 搜索框module -->
 <view>
   <van-search value="{{ value }}" placeholder="荔枝..." background="#7A9D54" bind:search="onSearch" />
 </view>
 
-<!-- 轮播图 -->
+<!-- 轮播图module -->
 <view class="swiper-container">
-  <swiper class="swiper-container--swiper">
+  <swiper class="swiper-container--swiper" autoplay="ture" circular="true" interval="3000">
     <block wx:for="{{swiper}}" wx:key="index">
       <swiper-item>
-        <image src="{{item.src}}"></image>
+        <image src="{{item.src}}" mode="widthFix" class="swp_img"></image>
       </swiper-item>
     </block>
   </swiper>
+</view>
+
+<!-- 今日特惠module -->
+
+<view class="recommend-box">
+  <view class="recommend-box-title">
+    <text>今日特惠</text>
+  </view>
+  <view class="recommend-box-main">
+    <view class="recommend-box-left">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/rec1.jpeg" mode="aspectFill" class="recommend-box-left--img" />
+    </view>
+    <view class="recommend-box-right">
+      <view class="recommend-box-right--1">
+        <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/rec2.jpeg" mode="aspectFill" class="recommend-box-right--img" />
+      </view>
+      <view class="recommend-box-right--2">
+        <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/rec3.jpeg" mode="aspectFill" class="recommend-box-right--img" />
+      </view>
+    </view>
+  </view>
 </view>
