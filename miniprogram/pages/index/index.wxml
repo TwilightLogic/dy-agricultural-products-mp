@@ -1,0 +1,15 @@
+<!-- 搜索框 -->
+<view>
+  <van-search value="{{ value }}" placeholder="荔枝..." background="#7A9D54" bind:search="onSearch" />
+</view>
+
+<!-- 轮播图 -->
+<view class="swiper-container">
+  <swiper class="swiper-container--swiper">
+    <block>
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
