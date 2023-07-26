@@ -34,3 +34,41 @@
     </view>
   </view>
 </view>
+
+<!-- 商品列表 -->
+<view class="product-container">
+  <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600">
+    商品
+  </van-divider>
+  <view class="product-container-main">
+    <block wx:for="{{product_list}}" wx:key="index">
+      <!-- 商品详情 -->
+      <view class="product-detail">
+        <!-- 商品图 -->
+        <image src="{{item.img[0]}}" mode="widthFix" class="product-detail--image" />
+        <!-- 商品名 -->
+        <view class="product-detail-title">
+          <text>{{item.name}}</text>
+        </view>
+        <!-- 商品价格容器 -->
+        <view class="product-detail-price-box">
+          <view class="product-detail-price">
+            <view class="product-detail-price--sale">
+              <text style="font-size: 24rpx; color: #8C3333; font-weight: 500;">¥</text>
+              <text style="font-size: 32rpx; font-weight: 500; color: #8C3333;">{{item.price}}</text>
+            </view>
+            <view class="product-detail-price--origin">
+              <text style="font-size: 24rpx; color: #999;">¥</text>
+              <text style="font-size: 24rpx; color: #999;">{{item.original_price}}</text>
+            </view>
+          </view>
+          <!-- 购物车图标 -->
+          <van-icon name="add" size="64rpx" color="#7A9D54" />
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 留白 -->
+<view style="width:100%; height: 300rpx;"></view>

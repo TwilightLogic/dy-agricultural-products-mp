@@ -7,6 +7,7 @@ Page({
    */
   data: {
     swiper: [],
+    product_list: [],
   },
 
   // 搜索框事件
@@ -19,6 +20,7 @@ Page({
    */
   onLoad(options) {
     let that = this;
+    // 获取轮播图
     db.collection('swiper').get({
       success: (res) => {
         console.log('轮播图获取成功', res);
@@ -28,6 +30,18 @@ Page({
       },
       fail: (err) => {
         console.log('轮播图获取失败', err);
+      },
+    });
+    // 获取商品列表
+    db.collection('products').get({
+      success: (res) => {
+        console.log('商品获取成功', res);
+        that.setData({
+          product_list: res.data,
+        });
+      },
+      fail: (err) => {
+        console.log('商品获取失败', err);
       },
     });
   },
