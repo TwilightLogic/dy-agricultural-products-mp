@@ -9,6 +9,35 @@ Page({
     product_list: [],
     all_price: 0,
     select_result: [],
+    is_all: true,
+  },
+
+  // 选择购物车中的所有商品
+  selectAllProducts(e) {
+    let that = this;
+    let name = e.currentTarget.dataset.name;
+    let result = [];
+
+    console.log(name);
+
+    if (name == '全选') {
+      for (let i = 0; i < that.data.product_list.length; i++) {
+        result.push(i + '');
+        if (i + 1 == that.data.product_list.length) {
+          that.getAllPrice(result);
+          that.setData({
+            select_result: result,
+            is_all: false,
+          });
+        }
+      }
+    } else {
+      that.setData({
+        select_result: [],
+        is_all: true,
+        all_price: 0,
+      });
+    }
   },
 
   // 购物车页面选择商品数量

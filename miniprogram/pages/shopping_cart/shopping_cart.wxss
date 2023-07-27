@@ -11,7 +11,7 @@
   box-sizing: border-box;
   padding: 22rpx;
   border-radius: 22rpx;
-  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.2);
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.15);
 }
 
 .cart-container-checkbox {

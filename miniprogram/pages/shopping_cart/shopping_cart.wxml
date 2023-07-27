@@ -33,5 +33,6 @@
 </view>
 
 <van-submit-bar custom-class="submit-bar" price="{{ all_price }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
-  <van-tag type="primary">全选</van-tag>
+  <van-tag type="primary" wx:if="{{is_all}}" data-name="全选" bindtap="selectAllProducts">全选</van-tag>
+  <van-tag type="primary" wx:else data-name="取消全选" bindtap="selectAllProducts">取消全选</van-tag>
 </van-submit-bar>
