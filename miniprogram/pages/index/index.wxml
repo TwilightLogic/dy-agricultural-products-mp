@@ -72,4 +72,4 @@
 </view>
 
 <!-- 留白 -->
-<view style="width:100%; height: 300rpx;"></view>
+<view style="width:100%; height: 128rpx;"></view>

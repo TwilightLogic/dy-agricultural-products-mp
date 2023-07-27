@@ -8,14 +8,62 @@ Page({
    */
   data: {
     product: {},
-    select_num: 0,
+    select_num: 1,
+    select_specs: '',
   },
+
+  // 规格选择
+  selectSpecs(e) {
+    let that = this;
+    let specs = e.currentTarget.dataset.specs;
+    that.setData({
+      select_specs: specs,
+    });
+  },
+
   // 选择商品数量
   changeSelectNum(e) {
     let that = this;
     that.setData({
       select_num: e.detail,
     });
+  },
+
+  // 添加到购物车
+  addToCart() {
+    let that = this;
+    let product = that.data.product;
+
+    // 如果没有选择规格的话，要提示用户选择规格
+    if (that.data.select_specs == '') {
+      wx.showToast({
+        title: '请选择规格',
+        icon: 'none',
+      });
+    } else {
+      wx.showLoading({
+        title: '添加中...',
+      });
+      db.collection('shopping_cart')
+        .add({
+          data: {
+            product_id: product._id,
+            product_img: product.img[0],
+            product_name: product.name,
+            product_price: product.price,
+            product_specs: that.data.select_specs,
+            product_num: that.data.select_num,
+            time: db.serverDate(),
+          },
+        })
+        .then((res) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '添加成功',
+          });
+          console.log('添加购物车', res);
+        });
+    }
   },
 
   // 获取商品详情信息
