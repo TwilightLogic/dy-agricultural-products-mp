@@ -12,6 +12,37 @@ Page({
     is_all: true,
   },
 
+  // 长按删除购物车中的商品
+  deleteProduct(e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+
+    wx.showModal({
+      title: '提示',
+      content: '是否删除该商品',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          wx.showLoading({
+            title: '删除中...',
+          });
+          db.collection('shopping_cart')
+            .doc(id)
+            .remove()
+            .then((res) => {
+              wx.hideLoading();
+              wx.showToast({
+                title: '删除成功',
+              });
+              that.getShoppingCart();
+            });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      },
+    });
+  },
+
   // 选择购物车中的所有商品
   selectAllProducts(e) {
     let that = this;

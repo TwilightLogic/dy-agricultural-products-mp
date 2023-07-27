@@ -57,3 +57,7 @@
 .product-msg-detail-img {
   width: 100%;
 }
+
+.submit-bar-box {
+  z-index: 99;
+}

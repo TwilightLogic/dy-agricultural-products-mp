@@ -1,2 +1,44 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="row-flex-space-btw pad-20 user-msg-container">
+  <view class="row-flex-start" style="width: 50%;">
+    <image src="{{user.userInfo.avatarUrl}}" mode="widthFix" class="avatar" />
+    <text style="color: #fff; font-size: 36rpx; font-weight: 500;">{{user.userInfo.nickName}}</text>
+  </view>
+  <text style="color: #f5f5f5; font-size: 28rpx;">欢迎来买茂名水果!</text>
+</view>
+
+<!-- 订单管理 -->
+<view class="row-flex-center pad-20 ">
+  <view class="col-flex-center pad-20 order-container">
+
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">我的订单</text>
+    </view>
+
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
+
+    <view class="row-flex-space-btw">
+      <!-- 1 -->
+      <view class="col-flex-center">
+        <van-icon name="send-gift-o" size="64rpx" color="#557A46" />
+        <text class="icon-title">待发货</text>
+      </view>
+      <!-- 2 -->
+      <view class="col-flex-center">
+        <van-icon name="logistics" size="64rpx" color="#557A46" />
+        <text class="icon-title">运输中</text>
+      </view>
+      <!-- 3 -->
+      <view class="col-flex-center">
+        <van-icon name="send-gift-o" size="64rpx" color="#557A46" />
+        <text class="icon-title">已收货</text>
+      </view>
+      <!-- 4 -->
+      <view class="col-flex-center">
+        <van-icon name="smile-comment-o" size="64rpx" color="#557A46" />
+        <text class="icon-title">售后</text>
+      </view>
+    </view>
+  </view>
+
+</view>
