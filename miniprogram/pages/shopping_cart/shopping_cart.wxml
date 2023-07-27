@@ -13,6 +13,7 @@
             <!-- 商品名、价格 -->
             <view class="col-flex-space-between" style="height: 100rpx; width: 50%; font-size: 24rpx">
               <text>{{item.product_name}}</text>
+              <text>{{item.product_specs}}</text>
               <view>
                 <text style="font-size: 24rpx; color: #8c3333; font-weight: 500">¥</text>
                 <text style="font-size: 32rpx; font-weight: 500; color: #8c3333">{{item.product_price}}</text>
@@ -21,7 +22,7 @@
           </view>
 
           <!-- 步进器 -->
-          <van-stepper value="{{ 1 }}" bind:change="onChange" />
+          <van-stepper value="{{ item.product_num }}" data-index="{{index}}" bind:change="selectProductNum" />
         </view>
       </view>
 

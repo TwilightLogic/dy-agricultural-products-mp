@@ -11,6 +11,27 @@ Page({
     select_result: [],
   },
 
+  // 购物车页面选择商品数量
+  selectProductNum(e) {
+    let that = this;
+    let index = e.currentTarget.dataset.index;
+
+    that.setData({
+      ['product_list[' + index + '].product_num']: e.detail,
+    });
+
+    that.getAllPrice(that.data.select_result);
+
+    // 同步更新数据库的product_num
+    db.collection('shopping_cart')
+      .doc(that.data.product_list[index]._id)
+      .update({
+        data: {
+          product_num: e.detail,
+        },
+      });
+  },
+
   // 计算总价
   getAllPrice(product) {
     let that = this;
