@@ -1,2 +1,36 @@
 <!--pages/shopping_cart/shopping_cart.wxml-->
-<text>pages/shopping_cart/shopping_cart.wxml</text>
+<view class="col-flex-start pad-20 cart-container">
+  <!-- 复选框组 -->
+  <van-checkbox-group value="{{ select_result }}" bind:change="selectProduct">
+    <block wx:for="{{product_list}}" wx:key="index">
+      <view class="row-flex-space-btw">
+        <van-checkbox checked-color="#8C3333" name="{{index}}" label-class="cart-container-checkbox">
+        </van-checkbox>
+        <view class="row-flex-space-btw" style="padding: 20rpx 20rpx 20rpx 0;">
+          <!-- 商品信息 -->
+          <view class="row-flex-start" style="width: 60%">
+            <image src="{{item.product_img}}" mode="widthFix" class="cart-container-image" />
+            <!-- 商品名、价格 -->
+            <view class="col-flex-space-between" style="height: 100rpx; width: 50%; font-size: 24rpx">
+              <text>{{item.product_name}}</text>
+              <view>
+                <text style="font-size: 24rpx; color: #8c3333; font-weight: 500">¥</text>
+                <text style="font-size: 32rpx; font-weight: 500; color: #8c3333">{{item.product_price}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 步进器 -->
+          <van-stepper value="{{ 1 }}" bind:change="onChange" />
+        </view>
+      </view>
+
+      <!-- 分割线 -->
+      <van-divider hairline customStyle="margin: 0" />
+    </block>
+  </van-checkbox-group>
+</view>
+
+<van-submit-bar custom-class="submit-bar" price="{{ all_price }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
+  <van-tag type="primary">全选</van-tag>
+</van-submit-bar>

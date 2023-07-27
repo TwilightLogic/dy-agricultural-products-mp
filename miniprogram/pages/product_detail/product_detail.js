@@ -44,24 +44,41 @@ Page({
       wx.showLoading({
         title: '添加中...',
       });
+      // 这里做了一个检查用户是否重复添加商品的操作
       db.collection('shopping_cart')
-        .add({
-          data: {
-            product_id: product._id,
-            product_img: product.img[0],
-            product_name: product.name,
-            product_price: product.price,
-            product_specs: that.data.select_specs,
-            product_num: that.data.select_num,
-            time: db.serverDate(),
-          },
+        .where({
+          product_id: product._id,
+          product_specs: that.data.select_specs,
         })
+        .get()
         .then((res) => {
-          wx.hideLoading();
-          wx.showToast({
-            title: '添加成功',
-          });
-          console.log('添加购物车', res);
+          if (res.data.length > 0) {
+            wx.hideLoading();
+            wx.showToast({
+              title: '商品已存在',
+              icon: 'none',
+            });
+          } else {
+            db.collection('shopping_cart')
+              .add({
+                data: {
+                  product_id: product._id,
+                  product_img: product.img[0],
+                  product_name: product.name,
+                  product_price: product.price,
+                  product_specs: that.data.select_specs,
+                  product_num: that.data.select_num,
+                  time: db.serverDate(),
+                },
+              })
+              .then((res) => {
+                wx.hideLoading();
+                wx.showToast({
+                  title: '添加成功',
+                });
+                console.log('添加购物车', res);
+              });
+          }
         });
     }
   },

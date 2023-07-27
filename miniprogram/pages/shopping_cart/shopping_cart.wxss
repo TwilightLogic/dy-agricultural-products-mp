@@ -1,1 +1,32 @@
 /* pages/shopping_cart/shopping_cart.wxss */
+
+.cart-container {
+  background-color: #7a9d54;
+  height: 98vh;
+}
+
+.cart-container van-checkbox-group {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 22rpx;
+  border-radius: 22rpx;
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.2);
+}
+
+.cart-container-checkbox {
+  width: 100%;
+  background-color: white;
+  border-radius: 22rpx;
+}
+
+.cart-container-image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 22rpx;
+}
+
+.submit-bar button {
+  background: linear-gradient(to right, #984747, #8c3333);
+  border: none;
+}

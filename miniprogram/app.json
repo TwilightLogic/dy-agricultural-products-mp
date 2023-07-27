@@ -24,6 +24,12 @@
         "selectedIconPath": "images/index-fill.png"
       },
       {
+        "pagePath": "pages/shopping_cart/shopping_cart",
+        "text": "购物车",
+        "iconPath": "images/shopping-cart.png",
+        "selectedIconPath": "images/shopping-cart-fill.png"
+      },
+      {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/my.png",

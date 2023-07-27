@@ -11,6 +11,13 @@
           "query": "id=6289143764c0e682000458ba37527f85",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/shopping_cart/shopping_cart",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

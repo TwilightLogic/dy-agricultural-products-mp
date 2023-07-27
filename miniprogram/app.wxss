@@ -39,6 +39,22 @@
   justify-content: center;
 }
 
+.col-flex-start {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.col-flex-space-between {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .pad-20 {
   padding: 20rpx;
   box-sizing: border-box;
