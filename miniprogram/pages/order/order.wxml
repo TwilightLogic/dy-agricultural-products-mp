@@ -1,2 +1,59 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="col-flex-start pad-20">
+
+  <!-- 我的地址 -->
+  <view class="col-flex-center pad-20 address-container" bindtap="getAddress">
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">我的地址</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 28rpx" />
+    <van-icon name="plus" size="48rpx" wx:if="{{!address.errMsg}}" />
+    <text style="font-size: 28rpx; margin-top: 12rpx;" wx:if="{{!address.errMsg}}">请选择地址</text>
+    <view class="row-flex-space-btw" style="font-weight: 500; font-size: 28rpx; color: #333;" wx:if="{{address.errMsg == 'chooseAddress:ok'}}">
+      <text>姓名: {{address.userName}}</text>
+      <text>联系电话: {{address.telNumber}}</text>
+    </view>
+    <view class="row-flex-start" style="font-weight: 500; font-size: 28rpx; color: #666; margin-top: 18rpx;" wx:if="{{address.errMsg == 'chooseAddress:ok'}}">
+      <text>地址: {{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}</text>
+    </view>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="col-flex-center pad-20 products-container">
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">商品信息</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 28rpx" />
+    <block wx:for="{{goods}}" wx:key="index">
+      <view class="row-flex-space-btw">
+        <view class="row-flex-start" style="width: 60%">
+          <image src="{{item.product_img}}" mode="widthFix" class="goods-img" />
+          <view class="col-flex-space-between" style="width: 50%; height: 125rpx;">
+            <text style="color: #333; font-size: 28rpx;">{{item.product_name}}</text>
+            <text style="font-size: 28rpx;">{{item.product_specs}}</text>
+            <view>
+              <text style="font-size: 18rpx; color: #8C3333; font-weight: 500;">¥</text>
+              <text style="font-size: 32rpx; font-weight: 500; color: #8C3333;">{{item.product_price}}</text>
+            </view>
+          </view>
+        </view>
+        <van-stepper value="{{ item.product_num }}" data-index="{{index}}" bind:change="selectProductNum" />
+      </view>
+      <van-divider hairline style="width: 100%;" custom-style=" margin-top: 12rpx; margin-bottom: 12rpx" wx:if="{{index + 1 < goods.length}}" />
+    </block>
+  </view>
+
+  <!-- 备注 -->
+  <view class="col-flex-center pad-20 remarks-container">
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">备注</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 12rpx; margin-bottom: 12rpx" />
+    <textarea value="" style="width: 100%; height: 180rpx; box-sizing: border-box; padding: 8rpx 0; font-size: 28rpx; color: #666;" bindinput="inputRemarks" placeholder="例：麻烦请尽快发货..." />
+  </view>
+
+  <view class="col-flex-center submit-container" style="margin-top: 64rpx;">
+    <van-button type="primary" size="large" style="width: 100%;" color="#8C3333">立即支付</van-button>
+  </view>
+
+</view>

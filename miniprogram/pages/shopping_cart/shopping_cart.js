@@ -16,9 +16,23 @@ Page({
   submitOrder() {
     let that = this;
     if (that.data.select_result.length != 0) {
-      wx.navigateTo({
-        url: '../order/order',
+      wx.showLoading({
+        title: '提交中...',
       });
+      let goods = [];
+      for (let i = 0; i < that.data.select_result.length; i++) {
+        goods.push(that.data.product_list[that.data.select_result[i] * 1]);
+        if (i + 1 == that.data.select_result.length) {
+          wx.hideLoading();
+          wx.setStorage({
+            key: 'goods',
+            data: goods,
+          });
+          wx.navigateTo({
+            url: '../order/order',
+          });
+        }
+      }
     } else {
       wx.showToast({
         title: '请选择商品',

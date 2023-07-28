@@ -54,7 +54,7 @@
   height: 400rpx;
   border-radius: 22rpx;
   overflow: hidden;
-  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
 }
 
 .recommend-box-left--img {
@@ -78,7 +78,7 @@
   height: 192rpx;
   border-radius: 22rpx;
   overflow: hidden;
-  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
 }
 
 .recommend-box-right--img {

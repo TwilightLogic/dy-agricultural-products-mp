@@ -1,1 +1,17 @@
 /* pages/order/order.wxss */
+.address-container,
+.products-container,
+.remarks-container,
+.submit-container {
+  background-color: #fff;
+  margin-top: 22rpx;
+  border-radius: 22rpx;
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
+  color: #666;
+}
+
+.goods-img {
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 22rpx;
+}
