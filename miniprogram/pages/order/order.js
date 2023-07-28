@@ -1,4 +1,5 @@
 // pages/order/order.js
+const db = wx.cloud.database();
 Page({
   /**
    * 页面的初始数据
@@ -8,6 +9,55 @@ Page({
     goods: [],
     remarks: '',
     all_price: 0,
+  },
+
+  // 下单
+  // TODO: 支付功能还没实现
+  buyNow() {
+    let that = this;
+    if (that.data.address == {} || that.data.goods.length == 0) {
+      wx.showToast({
+        title: '请填写地址',
+        icon: 'none',
+      });
+    } else {
+      wx.showLoading({
+        title: '下单中',
+      });
+      db.collection('order')
+        .add({
+          data: {
+            address: that.data.address,
+            goods: that.data.goods,
+            remarks: that.data.remarks,
+            all_price: that.data.all_price,
+            time: db.serverDate(),
+          },
+        })
+        .then((res) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '下单成功',
+          });
+          // 成功后清除缓存
+          wx.removeStorage({
+            key: 'goods',
+          });
+          // 成功后回退到购物车页面
+          wx.navigateBack({
+            delta: 1,
+          });
+          console.log('下单成功', res);
+        })
+        .catch((err) => {
+          wx.hideLoading();
+          wx.showToast({
+            title: '下单失败',
+            icon: 'error',
+          });
+          console.log('下单失败', err);
+        });
+    }
   },
 
   // 购物车页面选择商品数量

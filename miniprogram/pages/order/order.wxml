@@ -53,7 +53,7 @@
   </view>
 
   <view class="col-flex-center submit-container" style="margin-top: 64rpx;">
-    <van-button type="primary" size="large" style="width: 100%;" color="#8C3333">
+    <van-button type="primary" size="large" style="width: 100%;" color="#8C3333" bind:click="buyNow">
       立即支付 ¥{{all_price}}</van-button>
   </view>
 
