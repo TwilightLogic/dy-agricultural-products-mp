@@ -20,20 +20,20 @@
 
     <view class="row-flex-space-btw">
       <!-- 1 -->
-      <view class="col-flex-center">
+      <navigator url="../my_order/my_order?type=已付款" class="col-flex-center">
         <van-icon name="send-gift-o" size="68rpx" color="#557A46" />
-        <text class="icon-title">待发货</text>
-      </view>
+        <text class="icon-title">已付款</text>
+      </navigator>
       <!-- 2 -->
-      <view class="col-flex-center">
+      <navigator url="../my_order/my_order?type=运输中" class="col-flex-center">
         <van-icon name="logistics" size="68rpx" color="#557A46" />
         <text class="icon-title">运输中</text>
-      </view>
+      </navigator>
       <!-- 3 -->
-      <view class="col-flex-center">
+      <navigator url="../my_order/my_order?type=已完成" class="col-flex-center">
         <van-icon name="send-gift-o" size="68rpx" color="#557A46" />
-        <text class="icon-title">已收货</text>
-      </view>
+        <text class="icon-title">已完成</text>
+      </navigator>
       <!-- 4 -->
       <view class="col-flex-center">
         <van-icon name="smile-comment-o" size="68rpx" color="#557A46" />

@@ -31,6 +31,7 @@ Page({
             goods: that.data.goods,
             remarks: that.data.remarks,
             all_price: that.data.all_price,
+            type: '已付款',
             time: db.serverDate(),
           },
         })
