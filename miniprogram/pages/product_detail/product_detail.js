@@ -12,6 +12,36 @@ Page({
     select_specs: '',
   },
 
+  // 立即购买
+  buyNow() {
+    let that = this;
+    let product = that.data.product;
+    let goods = [];
+    if (that.data.select_specs == '') {
+      wx.showToast({
+        title: '请选择规格',
+        icon: 'none',
+      });
+    } else {
+      let goods_list = {
+        product_id: product._id,
+        product_img: product.img[0],
+        product_name: product.name,
+        product_price: product.price,
+        product_specs: that.data.select_specs,
+        product_num: that.data.select_num,
+      };
+      goods.push(goods_list);
+      wx.setStorage({
+        key: 'goods',
+        data: goods,
+      });
+      wx.navigateTo({
+        url: '../order/order',
+      });
+    }
+  },
+
   // 规格选择
   selectSpecs(e) {
     let that = this;
