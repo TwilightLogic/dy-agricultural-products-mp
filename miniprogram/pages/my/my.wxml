@@ -4,11 +4,12 @@
     <image src="{{user.userInfo.avatarUrl}}" mode="widthFix" class="avatar" />
     <text style="color: #fff; font-size: 36rpx; font-weight: 500;">{{user.userInfo.nickName}}</text>
   </view>
-  <text style="color: #f5f5f5; font-size: 28rpx;">欢迎来买茂名水果!</text>
+  <text style="color: #f5f5f5; font-size: 28rpx;">修改</text>
 </view>
 
-<!-- 订单管理 -->
-<view class="row-flex-center pad-20 ">
+<!-- 内容 -->
+<view class="col-flex-center pad-20">
+  <!-- 订单管理 -->
   <view class="col-flex-center pad-20 order-container">
 
     <view class="row-flex-start">
@@ -20,25 +21,90 @@
     <view class="row-flex-space-btw">
       <!-- 1 -->
       <view class="col-flex-center">
-        <van-icon name="send-gift-o" size="64rpx" color="#557A46" />
+        <van-icon name="send-gift-o" size="68rpx" color="#557A46" />
         <text class="icon-title">待发货</text>
       </view>
       <!-- 2 -->
       <view class="col-flex-center">
-        <van-icon name="logistics" size="64rpx" color="#557A46" />
+        <van-icon name="logistics" size="68rpx" color="#557A46" />
         <text class="icon-title">运输中</text>
       </view>
       <!-- 3 -->
       <view class="col-flex-center">
-        <van-icon name="send-gift-o" size="64rpx" color="#557A46" />
+        <van-icon name="send-gift-o" size="68rpx" color="#557A46" />
         <text class="icon-title">已收货</text>
       </view>
       <!-- 4 -->
       <view class="col-flex-center">
-        <van-icon name="smile-comment-o" size="64rpx" color="#557A46" />
+        <van-icon name="smile-comment-o" size="68rpx" color="#557A46" />
         <text class="icon-title">售后</text>
       </view>
     </view>
   </view>
 
+  <!-- 功能模块 -->
+  <view class="col-flex-center pad-20 function-container">
+    <!-- title -->
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">我的功能</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
+
+    <!-- content-list-1 -->
+    <view class="row-flex-space-btw function-list" bindtap="myAddress">
+      <!-- 1 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+      <!-- 2 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+      <!-- 3 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+    </view>
+
+    <!-- content-list-2 -->
+    <view class="row-flex-space-btw function-list">
+      <!-- 1 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+      <!-- 2 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+      <!-- 3 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+    </view>
+
+    <!-- content-list-3 -->
+    <view class="row-flex-space-btw function-list">
+      <!-- 1 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+      <!-- 2 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+      <!-- 3 -->
+      <view class="col-flex-center function-item">
+        <van-icon name="location-o" size="68rpx" color="#557A46" />
+        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      </view>
+    </view>
+  </view>
 </view>

@@ -7,6 +7,16 @@ Page({
    */
   data: {},
 
+  // 我的地址
+  myAddress() {
+    let that = this;
+    wx.chooseAddress({
+      success(res) {
+        console.log('我的地址', res);
+      },
+    });
+  },
+
   // 注册
   register() {
     let that = this;

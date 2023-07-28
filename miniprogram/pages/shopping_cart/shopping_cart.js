@@ -12,6 +12,21 @@ Page({
     is_all: true,
   },
 
+  // 提交订单
+  submitOrder() {
+    let that = this;
+    if (that.data.select_result.length != 0) {
+      wx.navigateTo({
+        url: '../order/order',
+      });
+    } else {
+      wx.showToast({
+        title: '请选择商品',
+        icon: 'none',
+      });
+    }
+  },
+
   // 长按删除购物车中的商品
   deleteProduct(e) {
     let that = this;

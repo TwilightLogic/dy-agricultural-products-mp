@@ -21,3 +21,18 @@
   color: #333;
   font-size: 24rpx;
 }
+
+.function-container {
+  background-color: #fff;
+  margin-top: 32rpx;
+  border-radius: 22rpx;
+}
+
+.function-list {
+  height: 128rpx;
+  margin-bottom: 12rpx;
+}
+
+.function-item {
+  width: 33%;
+}
