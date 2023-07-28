@@ -32,6 +32,7 @@
   border-radius: 22rpx;
   margin-bottom: 22rpx;
   font-size: 24rpx;
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
 }
 
 .goods-img {
