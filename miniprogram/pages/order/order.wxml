@@ -49,11 +49,12 @@
       <text style="color: #557A46; font-weight: 500;">备注</text>
     </view>
     <van-divider hairline style="width: 100%;" custom-style=" margin-top: 12rpx; margin-bottom: 12rpx" />
-    <textarea value="" style="width: 100%; height: 180rpx; box-sizing: border-box; padding: 8rpx 0; font-size: 28rpx; color: #666;" bindinput="inputRemarks" placeholder="例：麻烦请尽快发货..." />
+    <textarea value="" style="width: 100%; height: 180rpx; font-size: 28rpx; color: #666;" bindinput="inputRemarks" placeholder="例：麻烦请尽快发货..." />
   </view>
 
   <view class="col-flex-center submit-container" style="margin-top: 64rpx;">
-    <van-button type="primary" size="large" style="width: 100%;" color="#8C3333">立即支付</van-button>
+    <van-button type="primary" size="large" style="width: 100%;" color="#8C3333">
+      立即支付 ¥{{all_price}}</van-button>
   </view>
 
 </view>

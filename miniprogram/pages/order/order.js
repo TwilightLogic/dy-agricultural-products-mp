@@ -5,9 +5,39 @@ Page({
    */
   data: {
     address: {},
-    goods: {},
+    goods: [],
     remarks: '',
     all_price: 0,
+  },
+
+  // 购物车页面选择商品数量
+  selectProductNum(e) {
+    let that = this;
+    let index = e.currentTarget.dataset.index;
+
+    that.setData({
+      ['goods[' + index + '].product_num']: e.detail,
+    });
+
+    that.getAllPrice(that.data.goods);
+  },
+
+  // 计算总价
+  getAllPrice(product) {
+    let that = this;
+    let all_price = 0;
+    let product_list = product;
+
+    for (let i = 0; i < product_list.length; i++) {
+      all_price =
+        all_price + product_list[i].product_num * product_list[i].product_price;
+
+      if (i + 1 == product_list.length) {
+        that.setData({
+          all_price: parseFloat(all_price.toFixed(2)),
+        });
+      }
+    }
   },
 
   // 备注
@@ -40,6 +70,7 @@ Page({
         that.setData({
           goods: res.data,
         });
+        that.getAllPrice(res.data);
       },
     });
   },
