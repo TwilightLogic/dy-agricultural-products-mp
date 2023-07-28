@@ -1,0 +1,12 @@
+<!--pages/my_order/my_order.wxml-->
+<view class="row-flex-space-btw order-header">
+  <view class="row-flex-center {{title == '已付款' ? 'select-header' : ''}}" data-name="已付款" bindtap="selectTitle">
+    <text>已付款</text>
+  </view>
+  <view class="row-flex-center {{title == '运输中' ? 'select-header' : ''}}">
+    <text>运输中</text>
+  </view>
+  <view class="row-flex-center {{title == '已完成' ? 'select-header' : ''}}">
+    <text>已完成</text>
+  </view>
+</view>

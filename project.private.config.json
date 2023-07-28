@@ -32,6 +32,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my_order/my_order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
