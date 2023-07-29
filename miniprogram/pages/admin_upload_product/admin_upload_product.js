@@ -1,15 +1,32 @@
 // pages/admin_upload_product/admin_upload_product.js
+const db = wx.cloud.database();
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    product_types: [],
+    product_types_selected: '',
     name: '',
     original_price: 0,
     price: 0,
     input_specs: '',
     specs: [],
     img: [],
+  },
+
+  // 获取分类集合
+  getProductTypes() {
+    let that = this;
+    db.collection('product_types')
+      .get()
+      .then((res) => {
+        console.log('获取分类集合', res.data);
+        that.setData({
+          product_types: res.data,
+        });
+      });
   },
 
   // 删除规格
@@ -118,7 +135,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    let that = this;
+    that.getProductTypes();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
