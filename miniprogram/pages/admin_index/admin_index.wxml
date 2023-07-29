@@ -9,21 +9,6 @@
 
 <!-- 功能区 -->
 <view class="col-flex-center pad-20 manage-container">
-  <view class="row-flex-space-btw">
-    <view class="col-flex-center pad-20 manage-container-box">
-      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
-      <text>上传商品</text>
-    </view>
-    <view class="col-flex-center pad-20 manage-container-box">
-      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
-      <text>上传商品</text>
-    </view>
-    <view class="col-flex-center pad-20 manage-container-box">
-      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
-      <text>上传商品</text>
-    </view>
-  </view>
-
   <view class="row-flex-space-btw" style="margin-top: 36rpx;">
     <view class="col-flex-center pad-20 manage-container-box" style="width: 48.5%;">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/order.png" mode="widthFix" class="manage-container-img" />
@@ -31,7 +16,7 @@
     </view>
     <view class="col-flex-center pad-20 manage-container-box" style="width: 48%;">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
-      <text>订单管理</text>
+      <text>上传商品</text>
     </view>
   </view>
 

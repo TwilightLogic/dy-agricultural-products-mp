@@ -60,6 +60,12 @@
   box-sizing: border-box;
 }
 
+.border-radius-white {
+  background-color: #fff;
+  border-radius: 22rpx;
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
+}
+
 .container {
   display: flex;
   flex-direction: column;

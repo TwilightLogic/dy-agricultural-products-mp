@@ -46,6 +46,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/admin_upload_product/admin_upload_product",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

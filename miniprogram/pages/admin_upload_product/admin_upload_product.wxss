@@ -1,0 +1,9 @@
+/* pages/admin_upload_product/admin_upload_product.wxss */
+
+.specs-box {
+  width: 25%;
+  height: 64rpx;
+  background-color: #7a9d54;
+  color: #fff;
+  border-radius: 22rpx;
+}

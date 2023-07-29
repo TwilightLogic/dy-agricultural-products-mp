@@ -7,7 +7,7 @@
 }
 
 .manage-container-box {
-  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.08);
+  box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
   border-radius: 22rpx;
   width: 31%;
 }
