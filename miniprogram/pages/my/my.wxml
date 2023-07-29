@@ -125,6 +125,6 @@
       <input type="password" placeholder="密码" data-name="password" bindinput="inputMsg" style="margin-left: 18rpx; color: #333;" />
     </view>
     <van-divider style="width: 70%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
-    <button style="background-color: #7A9D54; color: #fff; border-radius: 22rpx; padding: 6rpx 12rpx; box-sizing: border-box; width: 85%; margin-top: 32rpx;" bindtap="loginAdmin">登录</button>
+    <button style="background-color: #7A9D54; color: #fff; border-radius: 22rpx; padding: 6rpx 12rpx; box-sizing: border-box; width: 85%; margin-top: 32rpx;" bindtap="loginAdmin" disabled="{{is_login ? 'true' : ''}}">登录</button>
   </view>
 </van-popup>

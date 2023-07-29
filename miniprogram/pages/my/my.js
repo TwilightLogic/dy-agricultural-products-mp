@@ -11,29 +11,47 @@ Page({
     show_login: false,
     username: '',
     password: '',
+    is_login: false,
   },
 
   loginAdmin() {
     let that = this;
-    db.collection('admin')
-      .where({
-        username: that.data.user_name,
-        password: that.data.user_password,
-      })
-      .get()
-      .then((res) => {
-        console.log('管理员登录', res);
-        if (res.data.length == 0) {
-          wx.showToast({
-            title: '账号或密码错误',
-          });
-        } else {
-          app.globalData.admin = res.data[0];
-          wx.navigateTo({
-            url: '../admin_index/admin_index',
-          });
-        }
+    wx.showToast({
+      title: '登录中',
+    });
+    if (that.data.username == '' || that.data.password == '') {
+      wx.showToast({
+        title: '请输入帐号或密码',
+        icon: 'none',
       });
+    } else {
+      that.setData({
+        is_login: true,
+      });
+      db.collection('admin')
+        .where({
+          username: that.data.user_name,
+          password: that.data.user_password,
+        })
+        .get()
+        .then((res) => {
+          console.log('管理员登录', res);
+          that.setData({
+            is_login: false,
+          });
+          wx.hideLoading();
+          if (res.data.length == 0) {
+            wx.showToast({
+              title: '账号或密码错误',
+            });
+          } else {
+            app.globalData.admin = res.data[0];
+            wx.navigateTo({
+              url: '../admin_index/admin_index',
+            });
+          }
+        });
+    }
   },
 
   // 后台管理——输入用户信息
