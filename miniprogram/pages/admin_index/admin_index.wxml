@@ -1,2 +1,68 @@
 <!--pages/admin_index/admin_index.wxml-->
-<text>pages/admin_index/admin_index.wxml</text>
+<view class="col-flex-center pad-20 admin-header">
+  <view>
+    <text>Hey, </text>
+    <text style="font-size: 32rpx; font-weight: 500; color: #fff;">Logic</text>
+  </view>
+  <text style="margin-top: 12rpx;">欢迎来到后台管理系统</text>
+</view>
+
+<!-- 功能区 -->
+<view class="col-flex-center pad-20 manage-container">
+  <view class="row-flex-space-btw">
+    <view class="col-flex-center pad-20 manage-container-box">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
+      <text>上传商品</text>
+    </view>
+    <view class="col-flex-center pad-20 manage-container-box">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
+      <text>上传商品</text>
+    </view>
+    <view class="col-flex-center pad-20 manage-container-box">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
+      <text>上传商品</text>
+    </view>
+  </view>
+
+  <view class="row-flex-space-btw" style="margin-top: 36rpx;">
+    <view class="col-flex-center pad-20 manage-container-box" style="width: 48.5%;">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/order.png" mode="widthFix" class="manage-container-img" />
+      <text>订单管理</text>
+    </view>
+    <view class="col-flex-center pad-20 manage-container-box" style="width: 48%;">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
+      <text>订单管理</text>
+    </view>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="col-flex-center pad-20 statistics-box" style="margin-top: 32rpx;">
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">数据中心</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
+
+    <view class="row-flex-center" style="color: #666;">
+      <view class="col-flex-center" style="width: 49%; height: 180rpx;">
+        <text style="font-weight: 500;">0</text>
+        <text style="font-size: 24rpx; margin-top: 12rpx;">待发货</text>
+      </view>
+      <view class="col-flex-center" style="width: 49%; height: 180rpx;">
+        <text style="font-weight: 500;">0</text>
+        <text style="font-size: 24rpx; margin-top: 12rpx;">待售后</text>
+      </view>
+    </view>
+
+    <view class="row-flex-center" style="color: #666;">
+      <view class="col-flex-center" style="width: 49%; height: 180rpx;">
+        <text style="font-weight: 500;">0</text>
+        <text style="font-size: 24rpx; margin-top: 12rpx;">当日订单量</text>
+      </view>
+      <view class="col-flex-center" style="width: 49%; height: 180rpx;">
+        <text style="font-weight: 500;">0</text>
+        <text style="font-size: 24rpx; margin-top: 12rpx;">当月订单量</text>
+      </view>
+    </view>
+
+  </view>
+</view>
