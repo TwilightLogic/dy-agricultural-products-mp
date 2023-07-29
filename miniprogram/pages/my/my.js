@@ -1,11 +1,65 @@
 // pages/my/my.js
 const db = wx.cloud.database();
+const app = getApp();
 
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    user: {},
+    show_login: false,
+    username: '',
+    password: '',
+  },
+
+  loginAdmin() {
+    let that = this;
+    db.collection('admin')
+      .where({
+        username: that.data.user_name,
+        password: that.data.user_password,
+      })
+      .get()
+      .then((res) => {
+        console.log('管理员登录', res);
+        if (res.data.length == 0) {
+          wx.showToast({
+            title: '账号或密码错误',
+          });
+        } else {
+          app.globalData.admin = res.data[0];
+          wx.navigateTo({
+            url: '../admin_index/admin_index',
+          });
+        }
+      });
+  },
+
+  // 后台管理——输入用户信息
+  inputMsg(e) {
+    let that = this;
+    let name = e.currentTarget.dataset.name;
+    that.setData({
+      [name]: e.detail.value,
+    });
+  },
+
+  // 显示登录框
+  showLoginBox() {
+    this.setData({
+      show_login: true,
+    });
+    wx.hideTabBar();
+  },
+
+  // 关闭登录框
+  closeLoginBox() {
+    this.setData({
+      show_login: false,
+    });
+    wx.showTabBar();
+  },
 
   // 我的地址
   myAddress() {
