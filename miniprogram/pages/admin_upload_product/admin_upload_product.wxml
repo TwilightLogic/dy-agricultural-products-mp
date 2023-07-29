@@ -45,12 +45,26 @@
         <van-button round color="#8C3333" type="primary" size="small" bind:click="addSpecs">新增</van-button>
       </view>
     </view>
-    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 8rpx" />
-    <view class="row-flex-start">
+    <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 8rpx" />
+    <view class="row-flex-start" style="flex-wrap: wrap;">
       <block wx:for="{{specs}}" wx:key="index">
         <view class="row-flex-center specs-box">
-          <text>{{item}}</text>
+          <text style="font-size: 32rpx;" data-index="{{index}}" bindlongpress="deleteSpecs">{{item}}</text>
         </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 上传轮播图 -->
+  <view class="col-flex-center pad-20 border-radius-white" style="margin-top: 36rpx;">
+    <view class="row-flex-space-btw">
+      <text style="color: #557A46; font-weight: 500;">轮播图</text>
+      <van-button round color="#8C3333" type="primary" size="small" bind:click="addImg">新增</van-button>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 8rpx" />
+    <view class="row-flex-start" style=" flex-wrap: wrap;">
+      <block class="row-flex-center" wx:for="{{img}}" wx:key="index">
+        <image src="{{item}}" mode="widthFix" class="swiper-img" data-index="{{index}}" bindlongpress="deleteImg" />
       </block>
     </view>
   </view>

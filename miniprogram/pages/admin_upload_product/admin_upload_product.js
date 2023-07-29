@@ -9,8 +9,79 @@ Page({
     price: 0,
     input_specs: '',
     specs: [],
+    img: [],
   },
 
+  // 删除规格
+  deleteSpecs(e) {
+    console.log(e);
+    let that = this;
+    let index = e.currentTarget.dataset.index;
+    let specs = that.data.specs;
+
+    wx.showModal({
+      title: '提示',
+      content: '是否删除此规格',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确认');
+          specs.splice(index, 1);
+          that.setData({
+            specs: specs,
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      },
+    });
+  },
+
+  // 删除图片
+  deleteImg(e) {
+    let that = this;
+    let index = e.currentTarget.dataset.index;
+    let img = that.data.img;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除此图片',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确认');
+          img.splice(index, 1);
+          that.setData({
+            img: img,
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      },
+    });
+  },
+
+  // 添加图片
+  addImg() {
+    let that = this;
+    let img = that.data.img;
+    wx.chooseMedia({
+      count: 9 - img.length,
+      mediaType: ['image', 'video'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      camera: 'back',
+      success(res) {
+        let tempFilePaths = [];
+        res.tempFiles.forEach((tempFile) => {
+          tempFilePaths.push(tempFile.tempFilePath);
+          console.log(tempFilePaths);
+        });
+        that.setData({
+          img: img.concat(tempFilePaths),
+        });
+      },
+    });
+  },
+
+  // 添加规格
   addSpecs(e) {
     let that = this;
     if (that.data.input_specs) {
@@ -32,7 +103,6 @@ Page({
   inputMsg(e) {
     let that = this;
     let name = e.currentTarget.dataset.name;
-    console.log(e);
 
     if (name == 'orginal_price' || name == 'price') {
       that.setData({
