@@ -27,8 +27,7 @@
             <view class="row-flex-space-btw" style="margin-bottom: 16rpx;">
               <image src="{{goods.product_img}}" mode="widthFix" class="goods-img" />
               <view class="col-flex-center" style="height: 120rpx; width: 40%; align-items: flex-start;">
-                <text style="color: #333; font-weight: 500;">{{goods.product_name}} ✖️ {{goods.product_num}}</text>
-                <text style="color: #666;">规格: {{goods.product_specs}}</text>
+                <text style="color: #333; font-weight: 500; font-size: 28rpx;">{{goods.product_name}} ✖️ {{goods.product_num}}</text>
               </view>
               <view>
                 <text style="font-size: 16rpx; color: #8C3333; font-weight: 500;">¥</text>

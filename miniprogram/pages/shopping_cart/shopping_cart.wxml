@@ -1,7 +1,7 @@
 <!--pages/shopping_cart/shopping_cart.wxml-->
 <view class="col-flex-start pad-20 cart-container">
   <!-- 复选框组 -->
-  <van-checkbox-group value="{{ select_result }}" bind:change="selectProduct">
+  <van-checkbox-group wx:if="{{product_list.length != 0}}" value="{{ select_result }}" bind:change="selectProduct">
     <block wx:for="{{product_list}}" wx:key="index">
       <view class="row-flex-space-btw">
         <van-checkbox checked-color="#8C3333" name="{{index}}" label-class="cart-container-checkbox">
@@ -30,6 +30,11 @@
       <van-divider hairline customStyle="margin: 0" />
     </block>
   </van-checkbox-group>
+
+  <view wx:else>
+    <text style="color: #fff; font-size: 36rpx; font-weight: 500;">Oops! 你的购物车是空的</text>
+  </view>
+
 </view>
 
 <van-submit-bar custom-class="submit-bar" price="{{ all_price }}" button-text="提交订单" bind:submit="submitOrder" tip="{{ true }}">
