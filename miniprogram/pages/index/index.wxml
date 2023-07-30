@@ -46,7 +46,7 @@
       <!-- 商品详情 -->
       <navigator class="product-detail" url="../product_detail/product_detail?id={{item._id}}">
         <!-- 商品图 -->
-        <image src="{{item.img[0]}}" mode="widthFix" class="product-detail--image" />
+        <image src="{{item.img_swiper[0]}}" mode="aspectFill" class="product-detail--image" />
         <!-- 商品名 -->
         <view class="product-detail-title">
           <text>{{item.name}}</text>

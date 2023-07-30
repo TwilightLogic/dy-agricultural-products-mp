@@ -13,7 +13,76 @@ Page({
     price: 0,
     input_specs: '',
     specs: [],
-    img: [],
+    img_swiper: [],
+    img_detail: [],
+  },
+
+  // 提交
+  async submit() {
+    let that = this;
+    let img_swiper = that.data.img_swiper;
+    let img_detail = that.data.img_detail;
+
+    wx.showLoading({
+      title: '上传中',
+    });
+
+    for (let i = 0; i < img_swiper.length; i++) {
+      let timestamp = new Date().getTime();
+      await wx.cloud
+        .uploadFile({
+          cloudPath: 'products_detail/' + timestamp + '' + i + '' + '.jpg',
+          filePath: img_swiper[i], // 文件路径
+        })
+        .then(async (res) => {
+          // get resource ID
+          console.log(res.fileID);
+          img_swiper[i] = res.fileID;
+          if (i + 1 == img_swiper.length) {
+            for (let j = 0; j < img_detail.length; j++) {
+              let timestamp_1 = new Date().getTime();
+              await wx.cloud
+                .uploadFile({
+                  cloudPath:
+                    'products_detail/' + timestamp_1 + '' + j + '' + '.jpg',
+                  filePath: img_detail[j], // 文件路径
+                })
+                .then((res_1) => {
+                  // get resource ID
+                  console.log(res_1.fileID);
+                  img_detail[j] = res_1.fileID;
+                  if (j + 1 == img_detail.length) {
+                    wx.cloud
+                      .callFunction({
+                        name: 'product',
+                        data: {
+                          product_types_selected:
+                            that.data.product_types_selected,
+                          name: that.data.name,
+                          original_price: that.data.original_price,
+                          price: that.data.price,
+                          specs: that.data.specs,
+                          img_swiper: img_swiper,
+                          img_detail: img_detail,
+                        },
+                      })
+                      .then((res) => {
+                        wx.hideLoading();
+                        console.log(res);
+                      });
+                  }
+                })
+                .catch((error) => {
+                  // handle error
+                  console.log(error);
+                });
+            }
+          }
+        })
+        .catch((error) => {
+          // handle error
+        });
+    }
   },
 
   // 获取分类集合
@@ -57,45 +126,87 @@ Page({
   deleteImg(e) {
     let that = this;
     let index = e.currentTarget.dataset.index;
-    let img = that.data.img;
-    wx.showModal({
-      title: '提示',
-      content: '是否删除此图片',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确认');
-          img.splice(index, 1);
-          that.setData({
-            img: img,
-          });
-        } else if (res.cancel) {
-          console.log('用户点击取消');
-        }
-      },
-    });
+    let name = e.currentTarget.dataset.name;
+    if (name == 'img_swiper') {
+      let img = that.data.img_swiper;
+      wx.showModal({
+        title: '提示',
+        content: '是否删除此图片',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确认');
+            img.splice(index, 1);
+            that.setData({
+              img_swiper: img,
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        },
+      });
+    } else if (name == 'img_detail') {
+      let img = that.data.img_detail;
+      wx.showModal({
+        title: '提示',
+        content: '是否删除此图片',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确认');
+            img.splice(index, 1);
+            that.setData({
+              img_detail: img,
+            });
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        },
+      });
+    }
   },
 
   // 添加图片
-  addImg() {
+  addImg(e) {
     let that = this;
-    let img = that.data.img;
-    wx.chooseMedia({
-      count: 9 - img.length,
-      mediaType: ['image', 'video'],
-      sourceType: ['album', 'camera'],
-      maxDuration: 30,
-      camera: 'back',
-      success(res) {
-        let tempFilePaths = [];
-        res.tempFiles.forEach((tempFile) => {
-          tempFilePaths.push(tempFile.tempFilePath);
-          console.log(tempFilePaths);
-        });
-        that.setData({
-          img: img.concat(tempFilePaths),
-        });
-      },
-    });
+    let name = e.currentTarget.dataset.name;
+    if (name == 'img_swiper') {
+      let img = that.data.img_swiper;
+      wx.chooseMedia({
+        count: 9 - img.length,
+        mediaType: ['image', 'video'],
+        sourceType: ['album', 'camera'],
+        maxDuration: 30,
+        camera: 'back',
+        success(res) {
+          let tempFilePaths = [];
+          res.tempFiles.forEach((tempFile) => {
+            tempFilePaths.push(tempFile.tempFilePath);
+            console.log(tempFilePaths);
+          });
+          that.setData({
+            img_swiper: img.concat(tempFilePaths),
+          });
+        },
+      });
+    } else if (name == 'img_detail') {
+      let img = that.data.img_detail;
+      wx.chooseMedia({
+        count: 9 - img.length,
+        mediaType: ['image', 'video'],
+        sourceType: ['album', 'camera'],
+        maxDuration: 30,
+        camera: 'back',
+        success(res) {
+          let tempFilePaths = [];
+          res.tempFiles.forEach((tempFile) => {
+            tempFilePaths.push(tempFile.tempFilePath);
+            console.log(tempFilePaths);
+          });
+          that.setData({
+            img_detail: img.concat(tempFilePaths),
+          });
+        },
+      });
+    }
   },
 
   // 添加规格
@@ -120,10 +231,13 @@ Page({
   inputMsg(e) {
     let that = this;
     let name = e.currentTarget.dataset.name;
+    console.log(e);
 
-    if (name == 'orginal_price' || name == 'price') {
+    if (name == 'original_price' || name == 'price') {
+      console.log(name);
+      console.log(e.detail);
       that.setData({
-        [name]: parseFloat((e.target.value * 1).toFixed(2)),
+        [name]: parseFloat((e.detail * 1).toFixed(2)),
       });
     } else {
       that.setData({

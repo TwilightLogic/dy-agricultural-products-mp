@@ -16,6 +16,10 @@
   margin: 8rpx;
 }
 
+.detail-img {
+  width: 100%;
+}
+
 van-radio {
   color: #333;
   box-sizing: border-box;
