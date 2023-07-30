@@ -11,8 +11,8 @@ Page({
     name: '',
     original_price: 0,
     price: 0,
-    input_specs: '',
-    specs: [],
+    // input_specs: '',
+    // specs: [],
     img_swiper: [],
     img_detail: [],
   },
@@ -61,7 +61,7 @@ Page({
                           name: that.data.name,
                           original_price: that.data.original_price,
                           price: that.data.price,
-                          specs: that.data.specs,
+                          // specs: that.data.specs,
                           img_swiper: img_swiper,
                           img_detail: img_detail,
                         },
@@ -99,28 +99,28 @@ Page({
   },
 
   // 删除规格
-  deleteSpecs(e) {
-    console.log(e);
-    let that = this;
-    let index = e.currentTarget.dataset.index;
-    let specs = that.data.specs;
+  // deleteSpecs(e) {
+  //   console.log(e);
+  //   let that = this;
+  //   let index = e.currentTarget.dataset.index;
+  //   let specs = that.data.specs;
 
-    wx.showModal({
-      title: '提示',
-      content: '是否删除此规格',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确认');
-          specs.splice(index, 1);
-          that.setData({
-            specs: specs,
-          });
-        } else if (res.cancel) {
-          console.log('用户点击取消');
-        }
-      },
-    });
-  },
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '是否删除此规格',
+  //     success(res) {
+  //       if (res.confirm) {
+  //         console.log('用户点击确认');
+  //         specs.splice(index, 1);
+  //         that.setData({
+  //           specs: specs,
+  //         });
+  //       } else if (res.cancel) {
+  //         console.log('用户点击取消');
+  //       }
+  //     },
+  //   });
+  // },
 
   // 删除图片
   deleteImg(e) {
@@ -210,22 +210,22 @@ Page({
   },
 
   // 添加规格
-  addSpecs(e) {
-    let that = this;
-    if (that.data.input_specs) {
-      let specs = that.data.specs;
-      specs.push(that.data.input_specs);
-      that.setData({
-        specs: specs,
-        input_specs: '',
-      });
-    } else {
-      wx.showToast({
-        title: '请输入商品的规格',
-        icon: 'none',
-      });
-    }
-  },
+  // addSpecs(e) {
+  //   let that = this;
+  //   if (that.data.input_specs) {
+  //     let specs = that.data.specs;
+  //     specs.push(that.data.input_specs);
+  //     that.setData({
+  //       specs: specs,
+  //       input_specs: '',
+  //     });
+  //   } else {
+  //     wx.showToast({
+  //       title: '请输入商品的规格',
+  //       icon: 'none',
+  //     });
+  //   }
+  // },
 
   // 商品信息——输入事件
   inputMsg(e) {

@@ -48,27 +48,7 @@
   </view>
 
   <!-- 商品规格 -->
-  <view class="col-flex-center pad-20 border-radius-white" style="margin-top: 36rpx;">
-    <view class="row-flex-space-btw">
-      <text style="color: #557A46; font-weight: 500;">商品规格</text>
-      <view class="row-flex-space-btw" style="width: 70%;">
-        <view class="row-flex-center">
-          <van-cell-group>
-            <van-field value="{{ input_specs }}" placeholder="请输入商品的规格" border="{{ false }}" input-align="left" data-name="input_specs" bind:change="inputMsg" clearable />
-          </van-cell-group>
-        </view>
-        <van-button round color="linear-gradient(to right, #8c3333, #7e2e2e)" type="primary" size="small" bind:click="addSpecs">新增</van-button>
-      </view>
-    </view>
-    <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 8rpx" />
-    <view class="row-flex-start" style="flex-wrap: wrap;">
-      <block wx:for="{{specs}}" wx:key="index">
-        <view class="row-flex-center specs-box">
-          <text style="font-size: 32rpx;" data-index="{{index}}" bindlongpress="deleteSpecs">{{item}}</text>
-        </view>
-      </block>
-    </view>
-  </view>
+  <!-- ⬆️ 先不写了 -->
 
   <!-- 上传轮播图 -->
   <view class="col-flex-center pad-20 border-radius-white" style="margin-top: 36rpx;">
