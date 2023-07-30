@@ -1,20 +1,40 @@
-// pages/admin_index/admin_index.js
+// pages/admin_manage_product/admin_manage_product.js
+const db = wx.cloud.database();
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    product_types: '全部',
+    products: [],
+  },
 
-  navigateToUpLoad() {
-    wx.navigateTo({
-      url: '../admin_upload_product/admin_upload_product',
-    });
+  // 获取商品
+  getProducts() {
+    let that = this;
+    wx.cloud
+      .callFunction({
+        name: 'product_manage',
+        data: {
+          method: 'getProducts',
+        },
+      })
+      .then((res) => {
+        console.log('获取商品', res.result.data);
+        that.setData({
+          products: res.result.data,
+        });
+      });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    let that = this;
+    that.getProducts();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

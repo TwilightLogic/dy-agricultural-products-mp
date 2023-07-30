@@ -3,13 +3,16 @@
   align-items: flex-start;
   background-color: #7a9d54;
   font-size: 28rpx;
-  color: #f5f5f5;
+  color: #fff;
+  height: 20vh;
 }
 
 .manage-container-box {
   box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
   border-radius: 22rpx;
-  width: 31%;
+  width: 48%;
+  height: 192rpx;
+  background-color: #fff;
 }
 
 .manage-container-box text {
@@ -24,4 +27,5 @@
 .statistics-box {
   box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.05);
   border-radius: 22rpx;
+  background-color: #fff;
 }

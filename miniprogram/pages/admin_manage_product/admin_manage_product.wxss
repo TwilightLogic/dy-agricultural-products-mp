@@ -1,0 +1,9 @@
+/* pages/admin_manage_product/admin_manage_product.wxss */
+.manage-product-header {
+  background-color: #7a9d54;
+}
+
+.manage-product-img {
+  height: 150rpx;
+  width: 150rpx;
+}

@@ -53,6 +53,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/admin_manage_product/admin_manage_product",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
