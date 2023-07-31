@@ -1,2 +1,24 @@
 <!--pages/admin_manage_order/admin_manage_order.wxml-->
-<text>pages/admin_manage_order/admin_manage_order.wxml</text>
+<!-- 搜索框 -->
+<view class="col-flex-center search-bar">
+  <view class="row-flex-center">
+    <van-search value="{{ value }}" background="#7A9D54" placeholder="请输入用户名" style="width: 100%;" />
+  </view>
+</view>
+
+<!-- 状态栏 -->
+<!-- - 已付款
+     - 运输中
+     - 售后
+ -->
+<view class="row-flex-space-btw status-container">
+  <view class="row-flex-center {{order_stat == '已付款' ? 'select-header' : ''}}" data-name="已付款" bindtap="selectOrderStat">
+    <text>已付款</text>
+  </view>
+  <view class="row-flex-center {{order_stat == '运输中' ? 'select-header' : ''}}" data-name="运输中" bindtap="selectOrderStat">
+    <text>运输中</text>
+  </view>
+  <view class="row-flex-center {{order_stat == '已完成' ? 'select-header' : ''}}" data-name="已完成" bindtap="selectOrderStat">
+    <text>已完成</text>
+  </view>
+</view>
