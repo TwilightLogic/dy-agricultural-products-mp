@@ -3,10 +3,14 @@
   <view class="row-flex-start">
     <van-search value="{{ value }}" placeholder="请输入商品名" style="width: 100%;" background="#7A9D54" bind:search="search" />
   </view>
+
   <view class="row-flex-center" style="width: 25%; gap: 8rpx;">
-    <text style="color: #fff; font-size: 28rpx;">{{product_types}}</text>
-    <van-icon name="arrow-down" color="#fff" size="28rpx" />
+    <picker range="{{product_types_list}}" range-key="name" bindchange="selectProductType">
+      <text style="color: #fff; font-size: 28rpx;">{{product_types}}</text>
+      <van-icon name="arrow-down" color="#fff" size="28rpx" style="margin-left: 8rpx;" />
+    </picker>
   </view>
+
 </view>
 
 <!-- 内容 -->
@@ -31,7 +35,7 @@
         </view>
         <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
         <view class="row-flex-end">
-          <text>{{item.time}}</text>
+          <text style="color: #999;">{{item.time}}</text>
         </view>
       </view>
     </block>

@@ -23,5 +23,14 @@ exports.main = async (event, context) => {
       })
       .orderBy('time', 'desc')
       .get();
+  } else if (event.method == 'selectProductType') {
+    console.log(event.product_types);
+    return await db
+      .collection('products')
+      .where({
+        product_types_selected: event.product_types,
+      })
+      .orderBy('time', 'desc')
+      .get();
   }
 };
