@@ -18,11 +18,11 @@
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
       <text>上传商品</text>
     </view>
-    <view class="col-flex-center pad-20 manage-container-box">
+    <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToManage">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/product_management.png" mode="widthFix" class="manage-container-img" />
       <text>商品管理</text>
     </view>
-    <view class="col-flex-center pad-20 manage-container-box">
+    <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToManage">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/product_management.png" mode="widthFix" class="manage-container-img" />
       <text>商品管理</text>
     </view>

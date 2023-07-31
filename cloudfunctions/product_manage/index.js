@@ -24,7 +24,6 @@ exports.main = async (event, context) => {
       .orderBy('time', 'desc')
       .get();
   } else if (event.method == 'selectProductType') {
-    console.log(event.product_types);
     return await db
       .collection('products')
       .where({
@@ -32,5 +31,14 @@ exports.main = async (event, context) => {
       })
       .orderBy('time', 'desc')
       .get();
+  } else if (event.method == 'increaseSales') {
+    return await db
+      .collection('products')
+      .doc(event.id)
+      .update({
+        data: {
+          sales: _.inc(event.num),
+        },
+      });
   }
 };

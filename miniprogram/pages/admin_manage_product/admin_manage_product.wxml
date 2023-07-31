@@ -17,7 +17,8 @@
 <scroll-view style="width: 100%; height: 94vh;" scroll-y="true" class="manage-product-container">
   <view class="col-flex-start pad-20">
     <block wx:for="{{products}}" wx:key="index">
-      <view class="col-flex-center pad-20 border-radius-white" style="margin-top: 16rpx; font-size: 24rpx; color: #333; font-weight: 500;">
+      <navigator url="../product_detail/product_detail?id={{item._id}}" class="col-flex-center pad-20 border-radius-white" style="margin-top: 16rpx; font-size: 24rpx; color: #333; font-weight: 500;">
+
         <view class="row-flex-start">
           <text>{{item.name}}</text>
         </view>
@@ -37,8 +38,8 @@
         <view class="row-flex-end">
           <text style="color: #999;">{{item.time}}</text>
         </view>
-      </view>
+
+      </navigator>
     </block>
   </view>
-
 </scroll-view>

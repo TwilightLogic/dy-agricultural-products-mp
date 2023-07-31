@@ -11,6 +11,31 @@ Page({
     all_price: 0,
   },
 
+  // 下单后——购物车清空相应商品
+  deleteGoods() {
+    let that = this;
+    let goods = that.data.goods;
+    for (let i = 0; i < goods.length; i++) {
+      db.collection('shopping_cart').doc(goods[i]._id).remove();
+    }
+  },
+
+  // 下单后——销量自增
+  increaseSales() {
+    let that = this;
+    let goods = that.data.goods;
+    for (let i = 0; i < goods.length; i++) {
+      wx.cloud.callFunction({
+        name: 'product_manage',
+        data: {
+          method: 'increaseSales',
+          id: goods[i].product_id,
+          num: goods[i].product_num,
+        },
+      });
+    }
+  },
+
   // 下单
   // TODO: 支付功能还没实现
   buyNow() {
@@ -40,6 +65,10 @@ Page({
           wx.showToast({
             title: '下单成功',
           });
+          // 下单后——更新销售量
+          that.increaseSales();
+          // 下单后——更新购物车
+          that.deleteGoods();
           // 成功后清除缓存
           wx.removeStorage({
             key: 'goods',
