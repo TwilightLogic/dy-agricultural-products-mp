@@ -85,13 +85,21 @@ Page({
     }
   },
 
+  // 获取选择的商品分类
+  onSelectType(e) {
+    let that = this;
+    that.setData({
+      product_types_selected: e.detail,
+    });
+  },
+
   // 获取分类集合
   getProductTypes() {
     let that = this;
     db.collection('product_types')
       .get()
       .then((res) => {
-        console.log('获取分类集合', res.data);
+        // console.log('获取分类集合', res.data);
         that.setData({
           product_types: res.data,
         });
@@ -180,7 +188,7 @@ Page({
           let tempFilePaths = [];
           res.tempFiles.forEach((tempFile) => {
             tempFilePaths.push(tempFile.tempFilePath);
-            console.log(tempFilePaths);
+            // console.log(tempFilePaths);
           });
           that.setData({
             img_swiper: img.concat(tempFilePaths),
@@ -199,7 +207,7 @@ Page({
           let tempFilePaths = [];
           res.tempFiles.forEach((tempFile) => {
             tempFilePaths.push(tempFile.tempFilePath);
-            console.log(tempFilePaths);
+            // console.log(tempFilePaths);
           });
           that.setData({
             img_detail: img.concat(tempFilePaths),
@@ -231,11 +239,8 @@ Page({
   inputMsg(e) {
     let that = this;
     let name = e.currentTarget.dataset.name;
-    console.log(e);
 
     if (name == 'original_price' || name == 'price') {
-      console.log(name);
-      console.log(e.detail);
       that.setData({
         [name]: parseFloat((e.detail * 1).toFixed(2)),
       });

@@ -25,6 +25,8 @@
               <text style="font-size: 20rpx; color: #8C3333; font-weight: 500;">¥</text>
               <text style="font-size: 28rpx; font-weight: 500; color: #8C3333;">{{item.price}}</text>
             </view>
+            <text>{{item.product_types_selected}}</text>
+            <text style="color: #333;">销量 {{item.sales}}</text>
           </view>
         </view>
       </view>

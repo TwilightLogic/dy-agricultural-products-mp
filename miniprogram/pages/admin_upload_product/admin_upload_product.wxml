@@ -39,7 +39,7 @@
     </view>
     <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 8rpx" />
     <view class="row-flex-start" style="flex-wrap: wrap;">
-      <van-radio-group value="{{ product_types_selected }}" bind:change="onChange" direction="horizontal">
+      <van-radio-group value="{{ product_types_selected }}" bind:change="onSelectType" direction="horizontal">
         <block wx:for="{{product_types}}" wx:key="index">
           <van-radio name="{{item.name}}" checked-color="#8C3333" custom-class="">{{item.name}}</van-radio>
         </block>
