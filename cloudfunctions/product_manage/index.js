@@ -12,5 +12,16 @@ exports.main = async (event, context) => {
 
   if (event.method == 'getProducts') {
     return await db.collection('products').orderBy('time', 'desc').get();
+  } else if (event.method == 'search') {
+    return await db
+      .collection('products')
+      .where({
+        name: db.RegExp({
+          regexp: event.name,
+          options: 'i',
+        }),
+      })
+      .orderBy('time', 'desc')
+      .get();
   }
 };

@@ -1,7 +1,7 @@
 <!--pages/admin_manage_product/admin_manage_product.wxml-->
 <view class="row-flex-space-btw manage-product-header">
   <view class="row-flex-start">
-    <van-search value="{{ value }}" placeholder="请输入商品名" style="width: 100%;" background="#7A9D54" />
+    <van-search value="{{ value }}" placeholder="请输入商品名" style="width: 100%;" background="#7A9D54" bind:search="search" />
   </view>
   <view class="row-flex-center" style="width: 25%; gap: 8rpx;">
     <text style="color: #fff; font-size: 28rpx;">{{product_types}}</text>
@@ -25,9 +25,13 @@
               <text style="font-size: 20rpx; color: #8C3333; font-weight: 500;">¥</text>
               <text style="font-size: 28rpx; font-weight: 500; color: #8C3333;">{{item.price}}</text>
             </view>
-            <text>{{item.product_types_selected}}</text>
-            <text style="color: #333;">销量 {{item.sales}}</text>
+            <text>类别：{{item.product_types_selected}}</text>
+            <text style="color: #999;">销量：{{item.sales}}</text>
           </view>
+        </view>
+        <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
+        <view class="row-flex-end">
+          <text>{{item.time}}</text>
         </view>
       </view>
     </block>
