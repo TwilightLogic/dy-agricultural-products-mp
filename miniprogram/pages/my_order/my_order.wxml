@@ -44,6 +44,7 @@
             <text style="font-size: 18rpx; color: #8C3333; font-weight: 500;">¥</text>
             <text style="font-size: 32rpx; font-weight: 500; color: #8C3333;">{{item.all_price}}</text>
           </view>
+          <van-button round color="#7A9D54" type="primary" size="small" wx:if="{{item.type == '运输中'}}" data-id="{{item._id}}" bind:click="confirmReceipt">确认收货</van-button>
         </view>
       </view>
     </block>

@@ -12,6 +12,37 @@ Page({
     order: [],
   },
 
+  // 确认收货
+  confirmReceipt(e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+    wx.showModal({
+      title: '提示',
+      content: '是否收货',
+      success: (res) => {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '确认收货中',
+          });
+          db.collection('order')
+            .doc(id)
+            .update({
+              data: {
+                type: '已完成',
+              },
+            })
+            .then((order) => {
+              console.log(order);
+              wx.hideLoading();
+              that.getOrder(that.data.title);
+            });
+        }
+        if (res.cancel) {
+        }
+      },
+    });
+  },
+
   // 时间转换器
   convertTime(list) {
     if (list.length == 0) {
