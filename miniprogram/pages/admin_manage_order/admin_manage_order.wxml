@@ -50,7 +50,50 @@
           </view>
         </view>
         <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
+        <view class="row-flex-end">
+          <view class=" row-flex-center" style="width: 20%; margin-right: 8rpx;">
+            <van-button round hairline plain color="#8C3333" type="primary" size="small" custom-style="font-weight: 500;">取消订单</van-button>
+          </view>
+          <view class="row-flex-center" style="width: 20%;">
+            <van-button round color="#7A9D54" type="primary" size="small" custom-style="font-weight: 500;" data-id="{{item._id}}" bind:click="showLogistics">立即发货</van-button>
+          </view>
+        </view>
       </view>
     </block>
   </view>
 </scroll-view>
+
+<!-- 物流弹出层 -->
+<van-popup show="{{ show_logistics }}" closeable round position="bottom" custom-style="height: 60%;" bind:close="closeLogistics">
+  <view class="row-flex-center" style="height: 8vh;">
+    <text style="color: #333; font-weight: 500;">立即发货</text>
+  </view>
+  <scroll-view class="logistics-box" scroll-y="true">
+    <!-- 快递公司 -->
+    <view class="col-flex-start pad-20">
+      <view class="row-flex-center" style="height: 48rpx;">
+        <picker mode="selector" style="width: 100%; height: 100%;" range="{{express}}">
+          <view class="row-flex-space-btw">
+            <text style="font-weight: 500;">快递公司</text>
+            <view class="row-flex-end" style="width: 70%;">
+              <text>{{select_express}}</text>
+              <van-icon name="arrow" style="margin-left: 8rpx;" />
+            </view>
+          </view>
+        </picker>
+      </view>
+      <van-divider hairline style="width: 100%;" custom-style="margin-top: 22rpx; margin-bottom: 16rpx" />
+      <!-- 快递单号 -->
+      <view class="row-flex-space-btw" style="height: 50%;">
+        <text style="font-weight: 500;">快递单号</text>
+        <van-cell-group>
+          <van-field value="{{ value }}" input-align="right" placeholder="请输入快递单号" border="{{ false }}" bind:change="onChange" />
+        </van-cell-group>
+      </view>
+      <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
+      <view class="col-flex-center" style="height: 200rpx">
+        <van-button type="primary" size="large" style="width: 100%;" round color="#7A9D54">立即发货</van-button>
+      </view>
+    </view>
+  </scroll-view>
+</van-popup>

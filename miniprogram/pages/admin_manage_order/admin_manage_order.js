@@ -9,7 +9,40 @@ Page({
   data: {
     order_stat: '已付款',
     order_skip: 0,
+    order_id: '',
+    show_logistics: false,
     order: [],
+    express: ['顺丰快递', '京东快递'],
+    select_express: '请选择快递',
+  },
+
+  // “立即发货”事件
+  deliverGoods(id) {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'order',
+      data: {
+        method: 'deliverGoods',
+        id: '',
+        logistics: '',
+      },
+    });
+  },
+
+  // 关闭物流信息
+  closeLogistics(e) {
+    this.setData({
+      show_logistics: false,
+    });
+  },
+
+  // 物流信息展示
+  showLogistics(e) {
+    let that = this;
+    that.setData({
+      order_id: e.currentTarget.dataset.id,
+      show_logistics: true,
+    });
   },
 
   // 时间转换器
@@ -41,7 +74,7 @@ Page({
       .then((res) => {
         console.log('获取order数据', res.result.data);
         that.setData({
-          order: that.convertTime(res.result.data), 
+          order: that.convertTime(res.result.data),
         });
       });
   },

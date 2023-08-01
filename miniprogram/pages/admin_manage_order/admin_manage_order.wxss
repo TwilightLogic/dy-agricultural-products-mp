@@ -33,3 +33,9 @@
   height: 150rpx;
   border-radius: 22rpx;
 }
+
+.logistics-box {
+  width: 100%;
+  font-size: 28rpx;
+  color: #333;
+}
