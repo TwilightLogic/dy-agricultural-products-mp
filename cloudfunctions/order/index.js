@@ -18,13 +18,15 @@ exports.main = async (event, context) => {
       .orderBy('time', 'desc')
       .skip(event.skip)
       .get();
-  } else if (event.method == 'showLogistics') {
+  } else if (event.method == 'deliverGoods') {
     return await db
       .collection('order')
       .doc(event.id)
       .update({
         data: {
           logistics: event.logistics,
+          type: '运输中',
+          logistics_time: db.serverDate(),
         },
       });
   }

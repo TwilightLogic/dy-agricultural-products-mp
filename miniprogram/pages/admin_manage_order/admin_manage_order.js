@@ -14,18 +14,66 @@ Page({
     order: [],
     express: ['顺丰快递', '京东快递'],
     select_express: '请选择快递',
+    express_id: '',
+    is_submit: false,
   },
 
   // “立即发货”事件
-  deliverGoods(id) {
+  deliverGoods() {
     let that = this;
-    wx.cloud.callFunction({
-      name: 'order',
-      data: {
-        method: 'deliverGoods',
-        id: '',
-        logistics: '',
-      },
+    if (that.data.select_express == '请选择快递' || !that.data.express_id) {
+      wx.showToast({
+        title: '请完善快递信息',
+        icon: 'none',
+      });
+    } else {
+      wx.showLoading({
+        title: '发货中',
+      });
+      that.setData({
+        is_submit: true,
+      });
+      wx.cloud
+        .callFunction({
+          name: 'order',
+          data: {
+            method: 'deliverGoods',
+            id: that.data.order_id,
+            logistics: {
+              select_express: that.data.select_express,
+              express_id: that.data.express_id,
+            },
+          },
+        })
+        .then((res) => {
+          wx.hideLoading();
+          that.setData({
+            select_express: '请选择快递',
+            express_id: '',
+            show_logistics: false,
+            order_skip: 0,
+            is_submit: false,
+          });
+          that.getOrder('已付款', 0);
+        });
+    }
+  },
+
+  // 输入快递单号
+  inputExpressId(e) {
+    let that = this;
+    let name = e.currentTarget.dataset.name;
+    that.setData({
+      [name]: e.detail,
+    });
+  },
+
+  // 选择快递公司
+  selectExpress(e) {
+    let that = this;
+    let index = parseInt(e.detail.value);
+    that.setData({
+      select_express: that.data.express[index],
     });
   },
 
@@ -62,6 +110,9 @@ Page({
   // 获取order数据
   getOrder(stat, skip) {
     let that = this;
+    wx.showLoading({
+      title: '获取中',
+    });
     wx.cloud
       .callFunction({
         name: 'order',
@@ -72,6 +123,7 @@ Page({
         },
       })
       .then((res) => {
+        wx.hideLoading();
         console.log('获取order数据', res.result.data);
         that.setData({
           order: that.convertTime(res.result.data),
@@ -85,8 +137,9 @@ Page({
     let order_stat = e.currentTarget.dataset.name;
     that.setData({
       order_stat,
+      order_id: 0,
     });
-    // that.getOrder(order_stat);
+    that.getOrder(order_stat, 0);
   },
 
   /**
