@@ -9,7 +9,8 @@
     "pages/admin_index/admin_index",
     "pages/admin_upload_product/admin_upload_product",
     "pages/admin_manage_product/admin_manage_product",
-    "pages/admin_manage_order/admin_manage_order"
+    "pages/admin_manage_order/admin_manage_order",
+    "pages/after_sales/after_sales"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

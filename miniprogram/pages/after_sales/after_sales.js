@@ -1,4 +1,5 @@
-// pages/my_order/my_order.js
+// pages/after_sales/after_sales.js
+
 const db = wx.cloud.database();
 const timeConverter = require('../../utils/time.js');
 
@@ -7,17 +8,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '已付款',
+    title: '售后中',
     order: [],
   },
 
-  // 确认收货
-  confirmReceipt(e) {
+  // 同意售后事件
+  agreeAfterSales(e) {
     let that = this;
     let id = e.currentTarget.dataset.id;
     wx.showModal({
       title: '提示',
-      content: '是否收货',
+      content: '是否同意售后',
       success: (res) => {
         if (res.confirm) {
           wx.showLoading({
@@ -27,7 +28,7 @@ Page({
             .doc(id)
             .update({
               data: {
-                type: '已完成',
+                afterSalesStat: '已售后',
               },
             })
             .then((order) => {
@@ -65,7 +66,8 @@ Page({
     });
     db.collection('order')
       .where({
-        type: type,
+        type: '售后',
+        afterSalesStat: type,
       })
       .orderBy('time', 'desc')
       .get()
@@ -96,10 +98,7 @@ Page({
    */
   onLoad(options) {
     let that = this;
-    that.setData({
-      title: options.type,
-    });
-    that.getOrder(options.type);
+    that.getOrder('售后中');
   },
 
   /**

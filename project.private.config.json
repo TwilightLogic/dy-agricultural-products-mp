@@ -67,6 +67,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/after_sales/after_sales",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

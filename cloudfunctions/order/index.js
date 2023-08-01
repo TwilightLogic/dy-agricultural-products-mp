@@ -36,7 +36,7 @@ exports.main = async (event, context) => {
       .update({
         data: {
           type: '售后',
-          afterSalesStat: '售后成功',
+          afterSalesStat: '售后中',
         },
       });
   }
