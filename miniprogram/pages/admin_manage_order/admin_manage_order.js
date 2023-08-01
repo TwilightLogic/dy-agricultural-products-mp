@@ -1,27 +1,68 @@
 // pages/admin_manage_order/admin_manage_order.js
+const db = wx.cloud.database();
+const timeConverter = require('../../utils/time.js');
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     order_stat: '已付款',
+    order_skip: 0,
+    order: [],
   },
 
-  // 订单——标题栏选择
+  // 时间转换器
+  convertTime(list) {
+    if (list.length == 0) {
+      return list;
+    } else {
+      for (let i = 0; i < list.length; i++) {
+        list[i].time = timeConverter.formatTime(new Date(list[i].time));
+        if (i + 1 == list.length) {
+          return list;
+        }
+      }
+    }
+  },
+
+  // 获取order数据
+  getOrder(stat, skip) {
+    let that = this;
+    wx.cloud
+      .callFunction({
+        name: 'order',
+        data: {
+          method: 'getOrderInStatBar',
+          stat,
+          skip,
+        },
+      })
+      .then((res) => {
+        console.log('获取order数据', res.result.data);
+        that.setData({
+          order: that.convertTime(res.result.data), 
+        });
+      });
+  },
+
+  // 选择订单状态
   selectOrderStat(e) {
     let that = this;
-    console.log(e);
-    let name = e.currentTarget.dataset.name;
+    let order_stat = e.currentTarget.dataset.name;
     that.setData({
-      order_stat: name,
+      order_stat,
     });
-    // that.getOrder(name);
+    // that.getOrder(order_stat);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    let that = this;
+    that.getOrder(that.data.order_stat, that.data.order_skip);
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -22,3 +22,14 @@
   height: 4rpx;
   background-color: #7a9d54; /* 或者使用其他样式来模拟下边框 */
 }
+
+.order-container {
+  height: 89vh;
+  width: 100%;
+}
+
+.goods-img {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 22rpx;
+}

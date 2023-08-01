@@ -18,7 +18,39 @@
   <view class="row-flex-center {{order_stat == '运输中' ? 'select-header' : ''}}" data-name="运输中" bindtap="selectOrderStat">
     <text>运输中</text>
   </view>
-  <view class="row-flex-center {{order_stat == '已完成' ? 'select-header' : ''}}" data-name="已完成" bindtap="selectOrderStat">
-    <text>已完成</text>
+  <view class="row-flex-center {{order_stat == '售后' ? 'select-header' : ''}}" data-name="售后" bindtap="selectOrderStat">
+    <text>售后</text>
   </view>
 </view>
+
+<!-- 订单 -->
+<scroll-view class="order-container" scroll-y="true">
+  <view class="col-flex-start pad-20">
+    <block wx:for="{{order}}" wx:key="index">
+      <view class="col-flex-center pad-20 border-radius-white" style="font-size: 24rpx; color: #333; margin-bottom: 16rpx;">
+        <view class="row-flex-space-btw">
+          <text>{{item.address.userName}}-{{item.address.telNumber}}</text>
+          <text wx:if="{{item.type == '已付款'}}" style="font-weight: 500; color: #557A46;">{{item.type}}</text>
+          <text wx:if="{{item.type == '运输中'}}" style="font-weight: 500; color: #8C3333;">{{item.type}}</text>
+          <text wx:if="{{item.type == '售后'}}" style="font-weight: 500; color: #999;">{{item.type}}</text>
+        </view>
+        <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
+        <view class="row-flex-space-btw">
+          <image src="{{item.goods[0].product_img}}" mode="widthFix" class="goods-img" />
+          <view class="col-flex-space-between" style="height: 140rpx; width:70%; align-items: flex-start; color: #333;">
+            <text style="font-weight: 500;">{{item.goods[0].product_name}}</text>
+            <view>
+              <text>数量：</text>
+              <text style="font-weight: 500;">{{item.goods[0].product_num}}</text>
+            </view>
+            <view>
+              <text>价格：</text>
+              <text style="font-weight: 500; color: #8C3333;">¥{{item.goods[0].product_price}}</text>
+            </view>
+          </view>
+        </view>
+        <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
+      </view>
+    </block>
+  </view>
+</scroll-view>
