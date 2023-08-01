@@ -18,6 +18,42 @@ Page({
     is_submit: false,
   },
 
+  // 取消订单事件
+  // - 因为点击“取消订单”后会将商品的type变成“售后”
+  cancelOrder(e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+    wx.showModal({
+      title: '提示',
+      content: '是否取消订单',
+      success: (res) => {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          that.setData({
+            order_skip: 0,
+          });
+          wx.showLoading({
+            title: '取消订单中',
+          });
+          wx.cloud
+            .callFunction({
+              name: 'order',
+              data: {
+                method: 'cancelOrder',
+                id,
+              },
+            })
+            .then((order) => {
+              console.log(order);
+              wx.hideLoading();
+              that.getOrder(that.data.order_stat, that.data.order_skip);
+            });
+        } else if (res.cancel) {
+        }
+      },
+    });
+  },
+
   // “立即发货”事件
   deliverGoods() {
     let that = this;

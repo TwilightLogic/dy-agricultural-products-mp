@@ -52,7 +52,7 @@
         <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
         <view class="row-flex-end">
           <view class=" row-flex-center" style="width: 20%; margin-right: 8rpx;">
-            <van-button round hairline plain color="#8C3333" type="primary" size="small" custom-style="font-weight: 500;" wx:if="{{item.type == '已付款'}}">取消订单</van-button>
+            <van-button round hairline plain color="#8C3333" type="primary" size="small" custom-style="font-weight: 500;" data-id="{{item._id}}" bind:click="cancelOrder" wx:if="{{item.type == '已付款'}}">取消订单</van-button>
           </view>
           <view class="row-flex-center" style="width: 20%;">
             <van-button round color="#7A9D54" type="primary" size="small" custom-style="font-weight: 500;" data-id="{{item._id}}" bind:click="showLogistics" wx:if="{{item.type == '已付款'}}">立即发货</van-button>
