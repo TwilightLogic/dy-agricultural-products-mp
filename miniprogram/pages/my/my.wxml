@@ -43,67 +43,23 @@
   </view>
 
   <!-- 功能模块 -->
-  <view class="col-flex-center pad-20 function-container">
+  <view class="col-flex-start pad-20 function-container border-radius-white">
     <!-- title -->
     <view class="row-flex-start">
       <text style="color: #557A46; font-weight: 500;">我的功能</text>
     </view>
     <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
 
-    <!-- content-list-1 -->
-    <view class="row-flex-space-btw function-list" bindtap="myAddress">
+    <view class="col-flex-start function-list" bindtap="myAddress" style="align-items: flex-start; gap: 16rpx; margin: 16rpx 0;">
       <!-- 1 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
+      <view class="row-flex-start function-item" style="gap: 16rpx; margin-left: 16rpx;">
+        <van-icon name="location-o" size="64rpx" color="#557A46" />
+        <text style="color: #333; font-size: 28rpx;">我的地址</text>
       </view>
       <!-- 2 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-      <!-- 3 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-    </view>
-
-    <!-- content-list-2 -->
-    <view class="row-flex-space-btw function-list">
-      <!-- 1 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-      <!-- 2 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-      <!-- 3 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-    </view>
-
-    <!-- content-list-3 -->
-    <view class="row-flex-space-btw function-list">
-      <!-- 1 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-      <!-- 2 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="location-o" size="68rpx" color="#557A46" />
-        <text style="color: #333; font-size: 24rpx;">我的地址</text>
-      </view>
-      <!-- 3 -->
-      <view class="col-flex-center function-item">
-        <van-icon name="bar-chart-o" size="68rpx" color="#557A46" bindtap="showLoginBox" />
-        <text style="color: #333; font-size: 24rpx;">后台管理</text>
+      <view class="row-flex-start function-item" style="gap: 16rpx; margin-left: 16rpx;">
+        <van-icon name="bar-chart-o" size="64rpx" color="#557A46" bindtap="showLoginBox" />
+        <text style="color: #333; font-size: 28rpx;">后台管理</text>
       </view>
     </view>
   </view>

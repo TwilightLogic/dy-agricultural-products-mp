@@ -29,8 +29,8 @@
 }
 
 .function-list {
-  height: 128rpx;
-  margin-bottom: 12rpx;
+  /* height: 20vh; */
+  /* margin-bottom: 12rpx; */
 }
 
 .function-item {
