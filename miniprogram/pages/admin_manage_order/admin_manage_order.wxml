@@ -35,21 +35,24 @@
           <text wx:if="{{item.type == '售后'}}" style="font-weight: 500; color: #999;">{{item.type}}</text>
         </view>
         <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
-        <view class="row-flex-space-btw">
-          <image src="{{item.goods[0].product_img}}" mode="widthFix" class="goods-img" />
-          <view class="col-flex-space-between" style="height: 140rpx; width:70%; align-items: flex-start; color: #333;">
-            <text style="font-weight: 500;">{{item.goods[0].product_name}}</text>
-            <view>
-              <text>数量：</text>
-              <text style="font-weight: 500;">{{item.goods[0].product_num}}</text>
-            </view>
-            <view>
-              <text>价格：</text>
-              <text style="font-weight: 500; color: #8C3333;">¥{{item.goods[0].product_price}}</text>
+        <block wx:for="{{item.goods}}" wx:key="index">
+          <view class="row-flex-space-btw">
+            <image src="{{item.product_img}}" mode="widthFix" class="goods-img" />
+            <view class="col-flex-space-between" style="height: 140rpx; width:70%; align-items: flex-start; color: #333;">
+              <text style="font-weight: 500;">{{item.product_name}}</text>
+              <view>
+                <text>数量：</text>
+                <text style="font-weight: 500;">{{item.product_num}}</text>
+              </view>
+              <view>
+                <text>价格：</text>
+                <text style="font-weight: 500; color: #8C3333;">¥{{item.product_price}}</text>
+              </view>
             </view>
           </view>
-        </view>
-        <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
+          <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
+        </block>
+
         <view class="row-flex-end">
           <view class=" row-flex-center" style="width: 20%; margin-right: 8rpx;">
             <van-button round hairline plain color="#8C3333" type="primary" size="small" custom-style="font-weight: 500;" data-id="{{item._id}}" bind:click="cancelOrder" wx:if="{{item.type == '已付款'}}">取消订单</van-button>
