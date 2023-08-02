@@ -8,11 +8,45 @@ Page({
   data: {
     swiper: [],
     product_list: [],
+    search_list: [],
+    is_show_search_box: false,
+  },
+
+  close_search_box() {
+    this.setData({
+      is_show_search_box: false,
+    });
+  },
+
+  show_search_box() {
+    this.setData({
+      is_show_search_box: true,
+    });
   },
 
   // 搜索框事件
-  onSearch(e) {
-    console.log(e.detail);
+  search(e) {
+    let that = this;
+    if (e.detail) {
+      db.collection('products')
+        .where({
+          name: db.RegExp({
+            regexp: e.detail,
+            options: 'i',
+          }),
+        })
+        .get()
+        .then((res) => {
+          console.log('搜索', res);
+          that.setData({
+            search_list: res.data,
+          });
+        });
+    } else {
+      that.setData({
+        search_list: [],
+      });
+    }
   },
 
   /**

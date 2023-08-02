@@ -18,6 +18,21 @@
   border-radius: 22rpx;
 }
 
+/* 搜索后的小弹窗 */
+.searh-result-box {
+  width: 94%;
+  height: 400rpx;
+  position: fixed;
+  top: 98rpx;
+  z-index: 999;
+}
+
+.search-list-img {
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 22rpx;
+}
+
 .recommend-box {
   width: 100%;
   display: flex;

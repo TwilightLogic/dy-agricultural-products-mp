@@ -1,6 +1,25 @@
 <!-- 搜索框module -->
 <view>
-  <van-search value="{{ value }}" placeholder="荔枝..." background="#7A9D54" bind:search="onSearch" />
+  <van-search value="{{ value }}" placeholder="荔枝..." background="#7A9D54" bind:change="search" bind:focus="show_search_box" bind:blur="close_search_box" />
+</view>
+<view class="col-flex-center" wx:if="{{is_show_search_box}}">
+  <view class="col-flex-start searh-result-box border-radius-white pad-20" style="border-radius: 4rpx; box-shadow: 0 24rpx 48rpx rgba(0, 0, 0, 0.2);">
+    <scroll-view style="width: 100%; height: 100%;" scroll-y="true">
+      <view class="col-flex-start pad-20">
+        <block wx:for="{{search_list}}" wx:key="index">
+          <view class="row-flex-space-btw">
+            <image src="{{item.img_swiper[0]}}" mode="widthFix" class="search-list-img" />
+            <text style="font-size: 24rpx;">{{item.name}}</text>
+            <view>
+              <text style="font-size: 18rpx; color: #8C3333; font-weight: 500;">¥</text>
+              <text style="font-size: 24rpx; font-weight: 500; color: #8C3333;">{{item.price}}</text>
+            </view>
+          </view>
+          <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
+        </block>
+      </view>
+    </scroll-view>
+  </view>
 </view>
 
 <!-- 轮播图module -->
