@@ -9,6 +9,7 @@ Page({
     goods: [],
     remarks: '',
     all_price: 0,
+    is_from_shopping_cart: false,
   },
 
   // 下单后——购物车清空相应商品
@@ -67,8 +68,11 @@ Page({
           });
           // 下单后——更新销售量
           that.increaseSales();
-          // 下单后——更新购物车
-          that.deleteGoods();
+          console.log(that.data.is_from_shopping_cart);
+          if (that.data.is_from_shopping_cart) {
+            // 下单后——更新购物车
+            that.deleteGoods();
+          }
           // 成功后清除缓存
           wx.removeStorage({
             key: 'goods',
@@ -160,6 +164,12 @@ Page({
    */
   onLoad(options) {
     let that = this;
+    console.log(options);
+    if (options.is_from_shopping_cart) {
+      that.setData({
+        is_from_shopping_cart: true,
+      });
+    }
     that.getGoods();
   },
 

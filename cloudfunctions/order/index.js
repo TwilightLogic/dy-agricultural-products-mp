@@ -4,6 +4,7 @@ const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV }); // 使用当前云环境
 
 const db = cloud.database();
+const _ = db.command;
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -39,5 +40,41 @@ exports.main = async (event, context) => {
           afterSalesStat: '售后中',
         },
       });
+  } else if (event.method == 'getData') {
+    let date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    // 待发货
+    const waitForDeliver = await db
+      .collection('order')
+      .where({
+        type: '已付款',
+      })
+      .count();
+    // 待售后
+    const waitForAfterSales = await db
+      .collection('order')
+      .where({
+        type: '售后',
+        afterSalesStat: '待售后',
+      })
+      .count();
+    // 当日订单量
+    const salesToday = await db
+      .collection('order')
+      .where({
+        time: _.gte(new Date(year, month, day)),
+      })
+      .count();
+    // 当月订单量
+    const salesMonth = await db
+      .collection('order')
+      .where({
+        time: _.gte(new Date(year, month, 1)),
+      })
+      .count();
+
+    return { waitForDeliver, waitForAfterSales, salesToday, salesMonth };
   }
 };

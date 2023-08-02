@@ -3,7 +3,27 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    data: {},
+  },
+
+  // 获取后台数据
+  getData() {
+    let that = this;
+    wx.cloud
+      .callFunction({
+        name: 'order',
+        data: {
+          method: 'getData',
+        },
+      })
+      .then((res) => {
+        console.log('后台数据', res);
+        that.setData({
+          data: res.result,
+        });
+      });
+  },
 
   navigateToManage() {
     wx.navigateTo({
@@ -20,7 +40,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    let that = this;
+    that.getData();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

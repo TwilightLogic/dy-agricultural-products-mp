@@ -31,10 +31,10 @@
     </block>
   </van-checkbox-group>
 
-  <view wx:else>
-    <text style="color: #fff; font-size: 36rpx; font-weight: 500;">Oops! 你的购物车是空的</text>
+  <view class="col-flex-start" wx:else style="height: 100vh; margin-top: 180rpx;">
+    <van-empty />
+    <text style="color: #fff; font-size: 36rpx;">Oops! 你的购物车是空的</text>
   </view>
-
 </view>
 
 <van-submit-bar custom-class="submit-bar" price="{{ all_price }}" button-text="提交订单" bind:submit="submitOrder" tip="{{ true }}">

@@ -29,7 +29,7 @@ Page({
             data: goods,
           });
           wx.navigateTo({
-            url: '../order/order',
+            url: '../order/order?is_from_shopping_cart=true',
           });
         }
       }
@@ -172,6 +172,7 @@ Page({
         that.setData({
           product_list: res.data,
         });
+        that.getAllPrice([]);
       });
   },
 
