@@ -10,7 +10,8 @@
     "pages/admin_upload_product/admin_upload_product",
     "pages/admin_manage_product/admin_manage_product",
     "pages/admin_manage_order/admin_manage_order",
-    "pages/after_sales/after_sales"
+    "pages/after_sales/after_sales",
+    "pages/category/category"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -29,6 +30,12 @@
         "text": "首页",
         "iconPath": "images/index.png",
         "selectedIconPath": "images/index-fill.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/category.png",
+        "selectedIconPath": "images/category-fill.png"
       },
       {
         "pagePath": "pages/shopping_cart/shopping_cart",

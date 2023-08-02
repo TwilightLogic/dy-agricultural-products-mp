@@ -51,12 +51,10 @@
     <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
 
     <view class="col-flex-start function-list" bindtap="myAddress" style="align-items: flex-start; gap: 16rpx; margin: 16rpx 0;">
-      <!-- 1 -->
       <view class="row-flex-start function-item" style="gap: 16rpx; margin-left: 16rpx;">
         <van-icon name="location-o" size="64rpx" color="#557A46" />
         <text style="color: #333; font-size: 28rpx;">我的地址</text>
       </view>
-      <!-- 2 -->
       <view class="row-flex-start function-item" style="gap: 16rpx; margin-left: 16rpx;">
         <van-icon name="bar-chart-o" size="64rpx" color="#557A46" bindtap="showLoginBox" />
         <text style="color: #333; font-size: 28rpx;">后台管理</text>
