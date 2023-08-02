@@ -55,8 +55,10 @@
         <van-icon name="location-o" size="64rpx" color="#557A46" />
         <text style="color: #333; font-size: 28rpx;">我的地址</text>
       </view>
+    </view>
+    <view class="col-flex-start function-list" bindtap="showLoginBox" style="align-items: flex-start; gap: 16rpx; margin: 16rpx 0;">
       <view class="row-flex-start function-item" style="gap: 16rpx; margin-left: 16rpx;">
-        <van-icon name="bar-chart-o" size="64rpx" color="#557A46" bindtap="showLoginBox" />
+        <van-icon name="bar-chart-o" size="64rpx" color="#557A46" />
         <text style="color: #333; font-size: 28rpx;">后台管理</text>
       </view>
     </view>

@@ -1,9 +1,19 @@
 <!--pages/category/category.wxml-->
-<view class="row-flex-center" style="height: 100vh">
-  <scroll-view style="width: 20%;height: 100%; background-color: #333;" scroll-y="true">
-    asd
-  </scroll-view>
-  <scroll-view style="width: 80%;height: 100%; background-color: aquamarine;" scroll-y="true">
+<view class="row-flex-center" style="height: 100vh; color: #333;">
 
+  <!-- left -->
+  <scroll-view style="width: 20%;height: 100%;" scroll-y="true">
+    <block wx:for="{{product_types}}" wx:key="index">
+      <view class="left-box row-flex-center {{select_product_type == item.name ? 'selected-type-box':'normal-type-box'}}" data-name="{{item.name}}" bindtap="selectProductType"><text>{{item.name}}</text></view>
+    </block>
+  </scroll-view>
+
+  <!-- right -->
+  <scroll-view style="width: 80%;height: 100%; background-color:#fff;" scroll-y="true">
+    <block wx:for="{{goods}}" wx:key="index">
+      <view class="row-flex-space-btw">
+        <image src="{{item.img_swiper}}" mode="widthFix" />
+      </view>
+    </block>
   </scroll-view>
 </view>

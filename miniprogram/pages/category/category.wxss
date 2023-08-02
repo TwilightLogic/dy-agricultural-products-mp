@@ -1,1 +1,20 @@
 /* pages/category/category.wxss */
+.left-box {
+  box-sizing: border-box;
+  color: #666;
+  font-size: 24rpx;
+}
+
+.normal-type-box {
+  height: 96rpx;
+  width: 100%;
+}
+
+.selected-type-box {
+  height: 96rpx;
+  width: 100%;
+  background-color: #fff;
+  border-left: 8rpx solid #8c3333;
+  color: #8c3333;
+  font-weight: 500;
+}

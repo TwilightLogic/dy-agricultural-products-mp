@@ -29,6 +29,7 @@ Page({
 
     for (let i = 0; i < img_swiper.length; i++) {
       let timestamp = new Date().getTime();
+      console.log(timestamp);
       await wx.cloud
         .uploadFile({
           cloudPath: 'products_detail/' + timestamp + '' + i + '' + '.jpg',
