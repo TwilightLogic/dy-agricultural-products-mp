@@ -20,7 +20,22 @@
 }
 
 .goods-img {
-  width: 130rpx;
-  height: 130rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 22rpx;
+}
+
+/* 搜索后的小弹窗 */
+.searh-result-box {
+  width: 94%;
+  height: 400rpx;
+  position: fixed;
+  top: 98rpx;
+  z-index: 999;
+}
+
+.search-list-img {
+  width: 98rpx;
+  height: 98rpx;
   border-radius: 22rpx;
 }

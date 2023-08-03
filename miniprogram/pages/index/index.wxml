@@ -8,7 +8,7 @@
       <view class="col-flex-start pad-20">
         <block wx:for="{{search_list}}" wx:key="index">
           <view class="row-flex-space-btw">
-            <image src="{{item.img_swiper[0]}}" mode="widthFix" class="search-list-img" />
+            <image src="{{item.img_swiper[0]}}" mode="aspectFill" class="search-list-img" />
             <text style="font-size: 24rpx;">{{item.name}}</text>
             <view>
               <text style="font-size: 18rpx; color: #8C3333; font-weight: 500;">¥</text>

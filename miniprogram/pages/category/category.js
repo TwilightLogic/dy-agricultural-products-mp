@@ -9,6 +9,45 @@ Page({
     product_types: [{ name: '当季推荐' }],
     select_product_type: '当季推荐',
     goods: [],
+    is_show_search_box: false,
+    search_list: [],
+  },
+
+  close_search_box() {
+    this.setData({
+      is_show_search_box: false,
+    });
+  },
+
+  show_search_box() {
+    this.setData({
+      is_show_search_box: true,
+    });
+  },
+
+  // 搜索框事件
+  search(e) {
+    let that = this;
+    if (e.detail) {
+      db.collection('products')
+        .where({
+          name: db.RegExp({
+            regexp: e.detail,
+            options: 'i',
+          }),
+        })
+        .get()
+        .then((res) => {
+          console.log('搜索', res);
+          that.setData({
+            search_list: res.data,
+          });
+        });
+    } else {
+      that.setData({
+        search_list: [],
+      });
+    }
   },
 
   // 获取对应商品
