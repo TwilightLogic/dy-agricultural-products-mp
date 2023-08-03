@@ -12,7 +12,7 @@
   <scroll-view style="width: 80%;height: 100%; background-color:#fff;" scroll-y="true">
     <block wx:for="{{goods}}" wx:key="index">
       <view class="row-flex-space-btw">
-        <image src="{{item.img_swiper}}" mode="widthFix" />
+        <image src="{{item.img_swiper[0]}}" mode="aspectFill" class="goods-img" />
       </view>
     </block>
   </scroll-view>

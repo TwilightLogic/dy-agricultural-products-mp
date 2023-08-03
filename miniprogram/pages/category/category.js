@@ -8,16 +8,20 @@ Page({
   data: {
     product_types: [{ name: '当季推荐' }],
     select_product_type: '当季推荐',
+    goods: [],
   },
 
   // 获取对应商品
   getGoods(select_product_type) {
     let that = this;
-    if (select_product_type == '全部') {
+    if (select_product_type == '当季推荐') {
       db.collection('products')
         .get()
         .then((res) => {
-          console.log('分类页面获取商品', res.data);
+          console.log('分类页面获取商品', res);
+          that.setData({
+            goods: res.data,
+          });
         });
     } else {
       db.collection('products')
@@ -27,6 +31,9 @@ Page({
         .get()
         .then((res) => {
           console.log('分类页面获取商品', res.data);
+          that.setData({
+            goods: res.data,
+          });
         });
     }
   },

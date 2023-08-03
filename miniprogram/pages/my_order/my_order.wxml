@@ -25,7 +25,7 @@
         <view class="col-flex-center">
           <block wx:for="{{item.goods}}" wx:for-item="goods" wx:key="index">
             <view class="row-flex-space-btw" style="margin-bottom: 16rpx;">
-              <image src="{{goods.product_img}}" mode="widthFix" class="goods-img" />
+              <image src="{{goods.product_img}}" mode="aspectFill" class="goods-img" />
               <view class="col-flex-center" style="height: 120rpx; width: 40%; align-items: flex-start;">
                 <text style="color: #333; font-weight: 500; font-size: 28rpx;">{{goods.product_name}} ✖️ {{goods.product_num}}</text>
               </view>
