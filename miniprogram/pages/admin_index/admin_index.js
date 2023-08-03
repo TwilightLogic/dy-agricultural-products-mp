@@ -25,6 +25,12 @@ Page({
       });
   },
 
+  navigateToOrder() {
+    wx.navigateTo({
+      url: '../admin_manage_order/admin_manage_order',
+    });
+  },
+
   navigateToManage() {
     wx.navigateTo({
       url: '../admin_manage_product/admin_manage_product',

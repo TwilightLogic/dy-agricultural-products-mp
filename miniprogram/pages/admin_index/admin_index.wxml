@@ -10,22 +10,23 @@
 <!-- 功能区 -->
 <view class="col-flex-center pad-20 manage-container">
   <view class="row-flex-space-btw" style="margin-top: 16rpx; flex-wrap: wrap; gap: 24rpx;">
-    <view class="col-flex-center pad-20 manage-container-box">
+    <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToOrder">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/order.png" mode="widthFix" class="manage-container-img" />
       <text>订单管理</text>
+    </view>
+    <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToManage">
+      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/product_management.png" mode="widthFix" class="manage-container-img" />
+      <text>商品管理</text>
     </view>
     <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToUpLoad">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/upload.png" mode="widthFix" class="manage-container-img" />
       <text>上传商品</text>
     </view>
-    <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToManage">
+    <view class="col-flex-center pad-20 manage-container-box">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/product_management.png" mode="widthFix" class="manage-container-img" />
-      <text>商品管理</text>
+      <text>下架商品</text>
     </view>
-    <view class="col-flex-center pad-20 manage-container-box" bindtap="navigateToManage">
-      <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/product_management.png" mode="widthFix" class="manage-container-img" />
-      <text>商品管理</text>
-    </view>
+
   </view>
 
   <!-- 数据统计 -->

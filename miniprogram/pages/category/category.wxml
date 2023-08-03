@@ -38,25 +38,27 @@
   <!-- right -->
   <scroll-view style="width: 80%;height: 100%; background-color:#fff;" scroll-y="true">
     <block wx:for="{{goods}}" wx:key="index">
-      <view class="row-flex-start pad-20" style="gap: 16rpx;">
-        <image src="{{item.img_swiper[0]}}" mode="aspectFill" class="goods-img" />
-        <view class="col-flex-start" style="height: 130rpx; width: 50%; gap: 8rpx; ">
-          <view class="row-flex-start"><text style=" color: #333; font-size: 28rpx;font-weight: 500;">{{item.name}}</text></view>
-          <view class="row-flex-start">
-            <view>
-              <text style="font-size: 18rpx; font-weight: 500; color: #8c3333">¥</text>
-              <text style="font-size: 28rpx; font-weight: 500; color: #8c3333">{{item.price}}</text>
+      <navigator style="width: 100%;" url="../product_detail/product_detail?id={{item._id}}">
+        <view class="row-flex-start pad-20" style="gap: 16rpx;">
+          <image src="{{item.img_swiper[0]}}" mode="aspectFill" class="goods-img" />
+          <view class="col-flex-start" style="height: 130rpx; width: 50%; gap: 8rpx; ">
+            <view class="row-flex-start"><text style=" color: #333; font-size: 28rpx;font-weight: 500;">{{item.name}}</text></view>
+            <view class="row-flex-start">
+              <view>
+                <text style="font-size: 18rpx; font-weight: 500; color: #8c3333">¥</text>
+                <text style="font-size: 28rpx; font-weight: 500; color: #8c3333">{{item.price}}</text>
+              </view>
+            </view>
+            <view class="row-flex-start" style="margin-top: 12rpx;">
+              <text style="color: #999; font-size: 20rpx;">月销量 {{item.sales}}</text>
             </view>
           </view>
-          <view class="row-flex-start" style="margin-top: 12rpx;">
-            <text style="color: #999; font-size: 20rpx;">月销量 {{item.sales}}</text>
+          <view class="col-flex-end" style="width: 15%; align-items: flex-end; ">
+            <van-icon name="add" color="#7A9D54" size="48rpx" />
           </view>
         </view>
-        <view class="col-flex-end" style="width: 15%; align-items: flex-end; ">
-          <van-icon name="add" color="#7A9D54" size="48rpx" />
-        </view>
-      </view>
-      <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 8rpx" />
+        <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 8rpx" />
+      </navigator>
     </block>
   </scroll-view>
 </view>

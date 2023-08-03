@@ -133,6 +133,7 @@ Page({
     db.collection('user')
       .get()
       .then((res) => {
+        console.log(res);
         if (res.data.length > 0) {
           that.setData({
             user: res.data[0],
