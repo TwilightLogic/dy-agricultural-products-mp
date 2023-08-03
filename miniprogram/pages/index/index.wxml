@@ -85,7 +85,7 @@
             </view>
           </view>
           <!-- 购物车图标 -->
-          <van-icon name="add" size="56rpx" color="#7A9D54" />
+          <van-icon name="add" size="48rpx" color="#7A9D54" />
         </view>
       </navigator>
     </block>

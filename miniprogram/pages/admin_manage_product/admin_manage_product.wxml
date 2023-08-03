@@ -24,7 +24,7 @@
         </view>
         <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
         <view class="row-flex-space-btw">
-          <image src="{{item.img_swiper[0]}}" mode="widthFix" class="manage-product-img" />
+          <image src="{{item.img_swiper[0]}}" mode="aspectFill" class="manage-product-img" />
           <view class="col-flex-space-between" style="height: 130rpx; width: 60%;">
             <view>
               <text style="font-size: 20rpx; color: #8C3333; font-weight: 500;">¥</text>

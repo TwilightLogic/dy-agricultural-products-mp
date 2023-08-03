@@ -6,4 +6,5 @@
 .manage-product-img {
   height: 150rpx;
   width: 150rpx;
+  border-radius: 22rpx;
 }
