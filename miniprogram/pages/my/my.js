@@ -30,8 +30,8 @@ Page({
       });
       db.collection('admin')
         .where({
-          username: that.data.user_name,
-          password: that.data.user_password,
+          username: that.data.username,
+          password: that.data.password,
         })
         .get()
         .then((res) => {
@@ -43,6 +43,7 @@ Page({
           if (res.data.length == 0) {
             wx.showToast({
               title: '账号或密码错误',
+              icon: 'none',
             });
           } else {
             app.globalData.admin = res.data[0];
