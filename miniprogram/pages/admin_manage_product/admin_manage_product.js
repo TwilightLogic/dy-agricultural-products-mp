@@ -58,6 +58,41 @@ Page({
       });
   },
 
+  deleteProduct(e) {
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+
+    wx.showModal({
+      title: '提示',
+      content: '是否删除该商品',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          wx.showLoading({
+            title: '删除中...',
+          });
+          db.collection('products')
+            .doc(id)
+            .remove()
+            .then((res) => {
+              console.log(res);
+              wx.hideLoading();
+              wx.showToast({
+                title: '删除成功',
+              });
+              that.getProducts();
+              that.getProductTypes();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      },
+    });
+  },
+
   // 搜索事件
   search(e) {
     let that = this;

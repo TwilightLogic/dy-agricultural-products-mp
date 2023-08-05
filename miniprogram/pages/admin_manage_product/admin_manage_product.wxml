@@ -17,7 +17,7 @@
 <scroll-view style="width: 100%; height: 94vh;" scroll-y="true" class="manage-product-container">
   <view class="col-flex-start pad-20">
     <block wx:for="{{products}}" wx:key="index">
-      <navigator url="../product_detail/product_detail?id={{item._id}}" class="col-flex-center pad-20 border-radius-white" style="margin-top: 16rpx; font-size: 24rpx; color: #333; font-weight: 500;">
+      <navigator url="../product_detail/product_detail?id={{item._id}}" class="col-flex-center pad-20 border-radius-white" style="margin-top: 16rpx; font-size: 24rpx; color: #333; font-weight: 500;" data-id="{{item._id}}" bindlongpress="deleteProduct">
 
         <view class="row-flex-start">
           <text>{{item.name}}</text>
@@ -35,10 +35,7 @@
           </view>
         </view>
         <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
-        <view class="row-flex-end">
-          <text style="color: #999;">{{item.time}}</text>
-        </view>
-
+        <text class="row-flex-end" style="color: #999;">{{item.time}}</text>
       </navigator>
     </block>
   </view>

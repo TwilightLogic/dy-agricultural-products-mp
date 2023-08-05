@@ -29,7 +29,10 @@
     <block wx:for="{{order}}" wx:key="index">
       <view class="col-flex-center pad-20 border-radius-white" style="font-size: 24rpx; color: #333; margin-bottom: 16rpx;">
         <view class="row-flex-space-btw">
-          <text>{{item.address.userName}}-{{item.address.telNumber}}</text>
+          <view class="col-flex-space-between" style="align-items: flex-start; width: 60%; color: #666;">
+            <text>{{item.address.telNumber}}</text>
+            <text>{{item._id}}</text>
+          </view>
           <text wx:if="{{item.type == '已付款'}}" style="font-weight: 500; color: #557A46;">{{item.type}}</text>
           <text wx:if="{{item.type == '运输中'}}" style="font-weight: 500; color: #8C3333;">{{item.type}}</text>
           <text wx:if="{{item.type == '售后'}}" style="font-weight: 500; color: #999;">{{item.type}}</text>
@@ -37,7 +40,7 @@
         <van-divider hairline style="width: 100%;" custom-style="margin-top: 8rpx; margin-bottom: 16rpx" />
         <block wx:for="{{item.goods}}" wx:key="index">
           <view class="row-flex-space-btw">
-            <image src="{{item.product_img}}" mode="widthFix" class="goods-img" />
+            <image src="{{item.product_img}}" mode="aspectFill" class="goods-img" />
             <view class="col-flex-space-between" style="height: 140rpx; width:70%; align-items: flex-start; color: #333;">
               <text style="font-weight: 500;">{{item.product_name}}</text>
               <view>
