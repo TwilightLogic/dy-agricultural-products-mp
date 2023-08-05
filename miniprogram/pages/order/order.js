@@ -41,7 +41,10 @@ Page({
   // TODO: 支付功能还没实现
   buyNow() {
     let that = this;
-    if (that.data.address == {} || that.data.goods.length == 0) {
+    if (
+      Object.keys(that.data.address).length == 0 ||
+      that.data.goods.length == 0
+    ) {
       wx.showToast({
         title: '请填写地址',
         icon: 'none',
@@ -68,7 +71,6 @@ Page({
           });
           // 下单后——更新销售量
           that.increaseSales();
-          console.log(that.data.is_from_shopping_cart);
           if (that.data.is_from_shopping_cart) {
             // 下单后——更新购物车
             that.deleteGoods();

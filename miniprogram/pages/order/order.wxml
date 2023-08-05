@@ -27,7 +27,7 @@
     <block wx:for="{{goods}}" wx:key="index">
       <view class="row-flex-space-btw">
         <view class="row-flex-start" style="width: 60%">
-          <image src="{{item.product_img}}" mode="widthFix" class="goods-img" />
+          <image src="{{item.product_img}}" mode="aspectFill" class="goods-img" />
           <view class="col-flex-space-between" style="width: 50%; height: 125rpx;">
             <text style="color: #333; font-size: 28rpx;">{{item.product_name}}</text>
             <text style="font-size: 28rpx;">{{item.product_specs}}</text>
