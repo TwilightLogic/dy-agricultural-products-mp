@@ -16,24 +16,3 @@ exports.main = async (event, context) => {
   });
   return res;
 };
-
-// 小程序代码
-wx.cloud.callFunction({
-  name: '函数名',
-  data: {
-    // ...
-  },
-  success: (res) => {
-    const payment = res.result.payment;
-    wx.requestPayment({
-      ...payment,
-      success(res) {
-        console.log('pay success', res);
-      },
-      fail(err) {
-        console.error('pay fail', err);
-      },
-    });
-  },
-  fail: console.error,
-});
