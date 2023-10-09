@@ -56,7 +56,7 @@ Page({
       wx.cloud.callFunction({
         name: 'pay',
         data: {
-          // totalFee: that.this.data.all_price,
+          totalFee: that.data.all_price * 100,
         },
         success: (res) => {
           const payment = res.result.payment;
