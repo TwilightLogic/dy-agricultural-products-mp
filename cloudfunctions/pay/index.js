@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
     outTradeNo: '121775' + new Date().getTime(),
     spbillCreateIp: '127.0.0.1',
     subMchId: '1654142664',
-    totalFee: 1,
+    totalFee: event.totalFee,
     envId: 'cloud1-9g7ndjtrbeb3a024',
     functionName: 'pay_cb',
   });

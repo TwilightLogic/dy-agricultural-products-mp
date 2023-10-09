@@ -56,17 +56,25 @@ Page({
       wx.cloud.callFunction({
         name: 'pay',
         data: {
-          // ...
+          // totalFee: that.this.data.all_price,
         },
         success: (res) => {
           const payment = res.result.payment;
+          console.log(payment);
+          console.log('allPrice', that.data.all_price);
           wx.requestPayment({
             ...payment,
             success(res) {
-              console.log('pay success', res);
+              wx.showToast({
+                title: '支付成功',
+              });
             },
             fail(err) {
-              console.error('pay fail', err);
+              console.log('allPrice', that.data.all_price);
+              wx.showToast({
+                title: '支付失败',
+                icon: 'error',
+              });
             },
           });
         },
