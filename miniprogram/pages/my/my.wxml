@@ -34,11 +34,6 @@
         <van-icon name="send-gift-o" size="68rpx" color="#557A46" />
         <text class="icon-title">已完成</text>
       </navigator>
-      <!-- 4 -->
-      <view class="col-flex-center">
-        <van-icon name="smile-comment-o" size="68rpx" color="#557A46" />
-        <text class="icon-title">售后</text>
-      </view>
     </view>
   </view>
 
@@ -62,6 +57,18 @@
         <text style="color: #333; font-size: 28rpx;">后台管理</text>
       </view>
     </view>
+  </view>
+
+  <!-- 售后 -->
+  <view class="col-flex-center pad-20 service-container">
+    <view class="row-flex-start">
+      <text style="color: #557A46; font-weight: 500;">联系客服</text>
+    </view>
+    <van-divider hairline style="width: 100%;" custom-style=" margin-top: 8rpx; margin-bottom: 16rpx" />
+    <button class="col-flex-center" open-type="contact">
+      <van-icon name="smile-comment-o" size="68rpx" color="#557A46" />
+      <text class="icon-title">售后</text>
+    </button>
   </view>
 </view>
 

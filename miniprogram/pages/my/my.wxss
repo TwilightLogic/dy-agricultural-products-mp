@@ -28,11 +28,17 @@
   border-radius: 22rpx;
 }
 
-/* .function-list { */
-/* height: 20vh; */
-/* margin-bottom: 12rpx; */
-/* } */
-
 .function-item {
   width: 33%;
+}
+
+.service-container {
+  background-color: #fff;
+  margin-top: 32rpx;
+  border-radius: 22rpx;
+}
+
+.service-container button text {
+  color: #333;
+  font-size: 24rpx;
 }

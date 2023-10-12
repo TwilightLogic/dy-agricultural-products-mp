@@ -43,7 +43,7 @@
           </view>
         </view>
         <view class="row-flex-end" style="margin-top: 12rpx;">
-          <van-button open-type="contact" plain round color="#7A9D54" type="primary" size="small">联系客服</van-button>
+          <van-button plain round color="#7A9D54" type="primary" size="small" open-type="contact">联系客服</van-button>
           <van-button round style="margin-left: 12rpx;" color="#7A9D54" type="primary" size="small" wx:if="{{item.afterSalesStat == '售后中'}}" data-id="{{item._id}}" bind:click="agreeAfterSales">同意售后</van-button>
         </view>
       </view>
