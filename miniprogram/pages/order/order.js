@@ -38,7 +38,6 @@ Page({
   },
 
   // 下单
-  // TODO: 支付功能还没实现
   buyNow() {
     let that = this;
     if (
@@ -68,6 +67,47 @@ Page({
               wx.showToast({
                 title: '支付成功',
               });
+
+              db.collection('order')
+                .add({
+                  data: {
+                    address: that.data.address,
+                    goods: that.data.goods,
+                    remarks: that.data.remarks,
+                    all_price: that.data.all_price,
+                    type: '已付款',
+                    time: db.serverDate(),
+                  },
+                })
+                .then((res) => {
+                  wx.hideLoading();
+                  wx.showToast({
+                    title: '下单成功',
+                  });
+                  // 下单后——更新销售量
+                  that.increaseSales();
+                  if (that.data.is_from_shopping_cart) {
+                    // 下单后——更新购物车
+                    that.deleteGoods();
+                  }
+                  // 成功后清除缓存
+                  wx.removeStorage({
+                    key: 'goods',
+                  });
+                  // 成功后回退到购物车页面
+                  wx.navigateBack({
+                    delta: 1,
+                  });
+                  console.log('下单成功', res);
+                })
+                .catch((err) => {
+                  wx.hideLoading();
+                  wx.showToast({
+                    title: '下单失败',
+                    icon: 'error',
+                  });
+                  console.log('下单失败', err);
+                });
             },
             fail(err) {
               console.log('allPrice', that.data.all_price);
@@ -80,47 +120,6 @@ Page({
         },
         fail: console.error,
       });
-
-      db.collection('order')
-        .add({
-          data: {
-            address: that.data.address,
-            goods: that.data.goods,
-            remarks: that.data.remarks,
-            all_price: that.data.all_price,
-            type: '已付款',
-            time: db.serverDate(),
-          },
-        })
-        .then((res) => {
-          wx.hideLoading();
-          wx.showToast({
-            title: '下单成功',
-          });
-          // 下单后——更新销售量
-          that.increaseSales();
-          if (that.data.is_from_shopping_cart) {
-            // 下单后——更新购物车
-            that.deleteGoods();
-          }
-          // 成功后清除缓存
-          wx.removeStorage({
-            key: 'goods',
-          });
-          // 成功后回退到购物车页面
-          wx.navigateBack({
-            delta: 1,
-          });
-          console.log('下单成功', res);
-        })
-        .catch((err) => {
-          wx.hideLoading();
-          wx.showToast({
-            title: '下单失败',
-            icon: 'error',
-          });
-          console.log('下单失败', err);
-        });
     }
   },
 

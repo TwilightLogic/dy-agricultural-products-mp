@@ -35,13 +35,13 @@
   </swiper>
 </view>
 
-<!-- 今日特惠module -->
+<!-- 今日特惠 module -->
 <view class="recommend-box">
-  <view class="recommend-box-title">
+  <!-- <view class="recommend-box-title">
     <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600;" style="width: 100%;" hairline="true">
       今日特惠
     </van-divider>
-  </view>
+  </view> -->
   <view class="recommend-box-main">
     <view class="recommend-box-left">
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/rec1.jpeg" mode="aspectFill" class="recommend-box-left--img" />
@@ -60,7 +60,7 @@
 <!-- 商品列表 -->
 <view class="product-container">
   <van-divider contentPosition="center" customStyle="color: #557A46; border-color: #557A46; font-size: 18px; font-weight: 600; margin: 12rpx;" style="width: 100%;" hairline="true">
-    商品
+    热销中
   </van-divider>
   <view class="product-container-main">
     <block wx:for="{{product_list}}" wx:key="index">
