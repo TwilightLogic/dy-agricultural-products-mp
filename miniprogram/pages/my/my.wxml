@@ -1,6 +1,6 @@
 <!--pages/my/my.wxml-->
 <view class="row-flex-space-btw pad-20 user-msg-container">
-  <view class="row-flex-start" style="width: 50%;">
+  <view class="row-flex-start" style="width: 50%;" bindtap="clickAvatar">
     <image src="{{user.userInfo.avatarUrl}}" mode="widthFix" class="avatar" />
     <text style="color: #fff; font-size: 36rpx; font-weight: 500;">{{user.userInfo.nickName}}</text>
   </view>

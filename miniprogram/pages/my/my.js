@@ -14,6 +14,40 @@ Page({
     is_login: false,
   },
 
+  clickAvatar() {
+    let that = this;
+    db.collection('user')
+      .get()
+      .then((res) => {
+        console.log(res);
+        if (res.data.length > 0 && res.data[0].userInfo.nickName != undefined) {
+        } else {
+          wx.getUserProfile({
+            desc: '用于完善个人资料',
+            success: (userInfo) => {
+              console.log('userinfo', userInfo);
+              wx.showLoading({
+                title: '完善中...',
+              });
+              db.collection('user')
+                .add({
+                  data: {
+                    userInfo: userInfo.userInfo,
+                  },
+                })
+                .then((user) => {
+                  wx.hideLoading();
+                  wx.showToast({
+                    title: '成功',
+                  });
+                  that.login();
+                });
+            },
+          });
+        }
+      });
+  },
+
   loginAdmin() {
     let that = this;
     wx.showToast({
