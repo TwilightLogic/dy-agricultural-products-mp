@@ -26,6 +26,7 @@
       <image src="cloud://cloud1-9g7ndjtrbeb3a024.636c-cloud1-9g7ndjtrbeb3a024-1316843321/icon/product_management.png" mode="widthFix" class="manage-container-img" />
       <text>下架商品</text>
     </view>
+    <!-- TODO: 轮播图上传 -->
 
   </view>
 

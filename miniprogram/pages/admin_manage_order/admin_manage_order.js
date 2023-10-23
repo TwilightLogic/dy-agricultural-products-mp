@@ -12,7 +12,7 @@ Page({
     order_id: '',
     show_logistics: false,
     order: [],
-    express: ['顺丰快递', '京东快递'],
+    express: ['顺丰快递', '京东快递', '圆通快递'],
     select_express: '请选择快递',
     express_id: '',
     is_submit: false,

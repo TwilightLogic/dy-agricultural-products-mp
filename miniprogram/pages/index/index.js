@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiper: [],
+    swiper: [], // 轮播图是一个数组
     product_list: [],
     search_list: [],
     is_show_search_box: false,
