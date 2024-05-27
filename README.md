@@ -1,8 +1,8 @@
-# 茂名市农产品电商微信小程序
+# Maoming City Agricultural Products E-commerce WeChat Mini Program
 
-农业产品这几年一直都是蓬勃发展的状态，茂名市位于热带季风气候的广东省西南部，常年温暖湿润的气候条件使得茂名市拥有丰富的热带植被和生物资源。荔枝、龙眼、百香果和香蕉等热带水果在茂名地区的产出值不断升高，分销全国各地
+Agricultural products have been thriving in recent years. Maoming City, located in the southwestern part of Guangdong Province under a tropical monsoon climate, enjoys warm and humid weather conditions year-round. This has endowed Maoming City with abundant tropical vegetation and biological resources. The production value of tropical fruits such as lychees, longans, passion fruits, and bananas in the Maoming area continues to rise, distributing these products nationwide.
 
-为了让我们的农业产品逐渐走出茂名的大门，并且更方便地让大家购买到本地的农业产品，我决定开始进行这个项目...
+In order to expand the reach of our agricultural products beyond the borders of Maoming and to make it more convenient for people to purchase local agricultural products, I have decided to start this project...
 
 ## Support
 
